@@ -79,7 +79,7 @@ export function addToCart(id){
 }
 
 export function updateQuantity(id, quantity){
-  let cart = axios.put(`/api/cart${id}?quantity=${quantity}`).then(results => {
+  let cart = axios.put(`/api/cart/${id}?quantity=${quantity}`).then(results => {
     return results.data
   })
   return {
@@ -89,7 +89,7 @@ export function updateQuantity(id, quantity){
 }
 
 export function deleteFromCart(id){
-  let cart = axios.delete(`/api/cart${id}`).then(results => {
+  let cart = axios.delete(`/api/cart/${id}`).then(results => {
     return results.data
   })
   return {

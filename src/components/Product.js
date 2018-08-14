@@ -7,17 +7,16 @@ import { updateQuantity} from '../redux/reducer'
 
 class Product extends Component {
   addProductToCart = (id) => {
-    console.log(this.props.cart)
+    // console.log(this.props.cart)
     let index = this.props.cart.findIndex(product => product.id ===id)
     if(index === -1) {
       this.props.addToCart(id)
     }
-    // else {
-    //   let quantity = this.props.cart[index]
-    //   quantity++
-    //   this.props.updateQuantity(id, quantity)
-    // }
-
+    else {
+      let quantity = this.props.cart[index].quantity
+      quantity++
+      this.props.updateQuantity(id, quantity)
+    }
   }
 
 
