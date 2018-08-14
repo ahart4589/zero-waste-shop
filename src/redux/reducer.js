@@ -2,6 +2,7 @@ import axios from 'axios'
 
 let initialState = {
   productList: [],
+  product: null,
   cart: []
 }
 
@@ -49,7 +50,7 @@ export function getProducts(){
 
 export function getProduct(id){
   let product = axios.get(`/api/products/${id}`).then(results => {
-    return results.data
+    return results.data[0]
   })
   return {
     type: GET_PRODUCT,
