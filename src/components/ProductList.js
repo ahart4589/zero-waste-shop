@@ -26,7 +26,7 @@ class ProductList extends Component {
     })
     return(
       <div>
-           <h3 style={{margin: '20px', color: '#0AE2C1'}}>All Products</h3>
+           <h3 style={{margin: '20px', color: '#3A34E1'}}>All Products</h3>
           {productList}
       </div>
     )

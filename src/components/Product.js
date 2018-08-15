@@ -11,11 +11,13 @@ class Product extends Component {
     let index = this.props.cart.findIndex(product => product.id ===id)
     if(index === -1) {
       this.props.addToCart(id)
+    
     }
     else {
       let quantity = this.props.cart[index].quantity
       quantity++
       this.props.updateQuantity(id, quantity)
+    
     }
   }
 
@@ -26,14 +28,13 @@ class Product extends Component {
       <div>
         <div key={product.id}>
         <Link to={`/products/${product.id}`}>
-          <img style={{maxWidth:'150px', maxHeight:'150px'}} src={product.img}/>
+          <img style={{maxWidth:'300px', maxHeight:'300px'}} src={product.img}/>
         </Link>
           <h3>{product.name}</h3>
           <p>${product.price}</p>
           {/* <p>{product.description}</p> */}
         </div>
-        <input/>
-        <button onClick={() => this.addProductToCart(product.id)}>Add to Cart</button>
+        <button style={{color: 'white',padding: '16px', backgroundColor:'#3A34E1', borderRadius:'4px', margin: '20px'}} onClick={() => this.addProductToCart(product.id)}>Add to Cart</button>
       </div>
     )
   }
