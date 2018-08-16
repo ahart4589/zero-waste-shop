@@ -1,3 +1,5 @@
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
+
 module.exports = {
   getProducts: (req, res) => {
     const db = req.app.get('db')
@@ -77,13 +79,15 @@ module.exports = {
   },
   checkout: (req, res) => {
     const db = req.app.get('db')
-    db.checkout()
-    .then(results => {
-      res.status(200).send(results)
-    })
-    .catch(err => {
-      console.log(err)
-      res.status(500).send('Something went wrong with checking out')
-    })
-  }
+    stripe.charges.create(req.body)
+    .then(() => {
+      db.checkout()
+      .then(results => {
+        res.status(200).send(results)
+      })
+      .catch(err => {
+        console.log(err)
+        res.status(500).send('Something went wrong with emptying cart')
+      })
+  })}
 }

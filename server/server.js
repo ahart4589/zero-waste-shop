@@ -1,12 +1,15 @@
+require ('dotenv').config()
+
 const express = require ('express')
       , bodyParser = require ('body-parser')
       , massive = require ('massive')
 
-require ('dotenv').config()
+
 
 const controller = require ('./controller')
 
 const app = express()
+
 
 const {SERVER_PORT, CONNECTION_STRING} = process.env
 
@@ -26,6 +29,7 @@ app.post('/api/cart/:id', controller.addToCart)
 app.put('/api/cart/:id', controller.updateQuantity)
 
 app.delete('/api/cart/:id', controller.deleteFromCart)
-app.delete('/api/checkout', controller.checkout)
+app.post('/api/checkout', controller.checkout)
+
 
 app.listen(SERVER_PORT, () => console.log('Server is running on port:', SERVER_PORT))

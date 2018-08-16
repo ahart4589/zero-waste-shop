@@ -30,11 +30,12 @@ class Product extends Component {
         <Link to={`/products/${product.id}`}>
           <img style={{maxWidth:'300px', maxHeight:'300px'}} src={product.img}/>
         </Link>
-          <h3>{product.name}</h3>
-          <p>${product.price}</p>
+          <h3 style={{color: '#0AE2C1',fontWeight:'bold'}}>{product.name}</h3>
+          <br/>
+          <p style={{color: '#0AE2C1'}}>${product.price}</p>
           {/* <p>{product.description}</p> */}
         </div>
-        <button style={{color: 'white',padding: '16px', backgroundColor:'#3A34E1', borderRadius:'4px', margin: '20px'}} onClick={() => this.addProductToCart(product.id)}>Add to Cart</button>
+        <button style={{color: 'black',padding: '12px', backgroundColor:'#0AE2C1', borderRadius:'4px', margin: '20px', fontWeight: 'bold', fontSize: '14px', marginBottom:'35px'}} onClick={() => this.addProductToCart(product.id)}>Add to Cart</button>
       </div>
     )
   }

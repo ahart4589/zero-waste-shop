@@ -14,6 +14,7 @@ const ADD_TO_CART = 'ADD_TO_CART'
 const UPDATE_QUANTITY = 'UPDATE_QUANTITY'
 const DELETE_FROM_CART = 'DELETE_FROM_CART'
 const CHECKOUT = 'CHECKOUT'
+const EMPTY_CART = 'EMPTY_CART'
 
 export default function reducer(state = initialState, action) {
   switch(action.type) {
@@ -31,6 +32,8 @@ export default function reducer(state = initialState, action) {
         return {...state, cart: action.payload}
     case CHECKOUT + FULFILLED:
         return {...state, cart: action.payload}
+    case EMPTY_CART:
+        return { ...state, cart: [] }
     default:
     return state
 
@@ -98,12 +101,8 @@ export function deleteFromCart(id){
   }
 }
 
-export function checkout(){
-  let cart = axios.delete('/api/checkout').then(results => {
-    return results.data
-  })
+export function emptyCart(){
   return {
-    type: CHECKOUT,
-    payload: cart
+    type: EMPTY_CART
   }
 }

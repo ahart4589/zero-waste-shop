@@ -2,30 +2,50 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {getProduct} from '../redux/reducer'
+import { addToCart} from '../redux/reducer'
+import { updateQuantity} from '../redux/reducer'
+
 
 class ProductDetails extends Component {
   componentDidMount() {
     let {id} = this.props.match.params
     this.props.getProduct(id)
   }
+
+  addProductToCart = (id) => {
+    // console.log(this.props.cart)
+    let index = this.props.cart.findIndex(product => product.id ===id)
+    if(index === -1) {
+      this.props.addToCart(id)
+    }
+    else {
+      let quantity = this.props.cart[index].quantity
+      quantity++
+      this.props.updateQuantity(id, quantity)
+    
+    }
+  }
+
   render (){
+    let {product} = this.props
     return(
-       <div>
+       <div style={{backgroundColor:'black', marginTop: '100px', height:'100vh'}}>
         {this.props.product && <div>
           <img style={{maxWidth:'300px', maxHeight:'300px', margin:'20px'}}src={this.props.product.img}/>
-          <h3>{this.props.product.name}</h3>
+          <h3 style={{color:'#0AE2C1'}}>{this.props.product.name}</h3>
           <br/>
-          <p>${this.props.product.price}</p>
+          <p style={{color:'#0AE2C1'}}>${this.props.product.price}</p>
           <br/>
-          <p style={{margin:'20px'}}>{this.props.product.description}</p>
-          <input placeholder='quantity' style={{backgroundColor:'#8B88F0'}} type='text' value={this.props.quantity}/>
+          <p style={{margin:'20px', color: '#0AE2C1'}}>{this.props.product.description}</p>
+          {/* <input placeholder='quantity' style={{backgroundColor:'#8B88F0'}} type='text' value={this.props.quantity}/> */}
           </div>
           }
         <Link to='/products'>
-            <button style={{color: 'white',padding: '10px', backgroundColor:'#0AE2C1', borderRadius:'4px', margin: '20px'}}>
+            <button style={{color: 'black',padding: '10px', backgroundColor:'#0AE2C1', borderRadius:'4px', margin: '20px', fontSize:'14px',fontWeight:'bold'}}>
             Back to all products
             </button>
         </Link>
+        <button style={{color: 'black',padding: '10px', backgroundColor:'#0AE2C1', borderRadius:'4px', margin: '20px', fontSize:'14px',fontWeight:'bold'}} onClick={() => this.addProductToCart(product.id)}>Add to Cart</button>
       </div>
     )
   }
@@ -34,8 +54,9 @@ class ProductDetails extends Component {
 
 function mapStateToProps(state){
   return {
-    product: state.product
+    product: state.product,
+    cart: state.cart
   }
 }
 
-export default connect(mapStateToProps, {getProduct})(ProductDetails)
+export default connect(mapStateToProps, {getProduct, updateQuantity, addToCart})(ProductDetails)
