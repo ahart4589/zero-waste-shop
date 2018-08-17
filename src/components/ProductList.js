@@ -5,6 +5,9 @@ import Product from './Product'
 import { getProducts, getCart } from '../redux/reducer';
 import ProductDetails from './ProductDetails';
 
+import background from '../images/sea.jpg'
+
+
 class ProductList extends Component {
 
   componentDidMount() {
@@ -25,10 +28,11 @@ class ProductList extends Component {
         )
     })
     return(
-      <div style={{backgroundColor: 'black'}}>
-           <h2 style={{padding: '20px', color: '#0AE2C1', backgroundColor: 'black', marginTop: '100px'}}>All Products</h2>
+      <div style={{backgroundColor: 'black', backgroundImage: `url(${background})`, backgroundSize: 'cover', overflow:'auto', height: '100vh'}}>
+           <h2 style={{padding: '20px', color: '#0AE2C1', marginTop: '100px',}}>All Products</h2>
           {productList}
       </div>
+      
     )
   }  
 }

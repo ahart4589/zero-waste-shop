@@ -5,6 +5,8 @@ import {getProduct} from '../redux/reducer'
 import { addToCart} from '../redux/reducer'
 import { updateQuantity} from '../redux/reducer'
 
+import background from '../images/sea.jpg'
+
 
 class ProductDetails extends Component {
   componentDidMount() {
@@ -29,9 +31,9 @@ class ProductDetails extends Component {
   render (){
     let {product} = this.props
     return(
-       <div style={{backgroundColor:'black', marginTop: '100px', height:'100vh'}}>
+       <div style={{backgroundColor: 'black', backgroundImage: `url(${background})`, backgroundSize: 'cover', overflow:'auto', height: '100vh'}}>
         {this.props.product && <div>
-          <img style={{maxWidth:'300px', maxHeight:'300px', margin:'20px'}}src={this.props.product.img}/>
+          <img style={{maxWidth:'300px', maxHeight:'300px', margin:'20px', marginTop: '120px'}}src={this.props.product.img}/>
           <h3 style={{color:'#0AE2C1'}}>{this.props.product.name}</h3>
           <br/>
           <p style={{color:'#0AE2C1'}}>${this.props.product.price}</p>

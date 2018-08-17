@@ -80,14 +80,17 @@ module.exports = {
   checkout: (req, res) => {
     const db = req.app.get('db')
     stripe.charges.create(req.body)
-    .then(() => {
-      db.checkout()
-      .then(results => {
-        res.status(200).send(results)
-      })
-      .catch(err => {
-        console.log(err)
-        res.status(500).send('Something went wrong with emptying cart')
+    .then((results) => {
+      db.add_to_orders(results.id).then(() => {
+        db.checkout()
+        .then(results => {
+          res.status(200).send(results)
+        })
+        .catch(err => {
+          console.log(err)
+          res.status(500).send('Something went wrong with emptying cart')
+        })
+
       })
   })}
 }

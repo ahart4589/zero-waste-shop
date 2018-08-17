@@ -1,30 +1,42 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
+import main from '../main.css'
 
 import logo from '../images/logo.png'
+import transparentLogo from '../images/logo_transparent.png'
 
 
 class NavBar extends Component {
   render(){
+  let total = 0
+  for (let i = 0; i<this.props.cart.length; i++){
+    total += this.props.cart[i].quantity
+  }
     return (
-      <div style={{height:'100px',width: '100%', backgroundColor: 'black', top: '0', border:'1px solid #0AE2C1', position: 'fixed'}}>
-        <header className="Nav-header" >
+      <nav id='navbar'>
+        <header className="nav-header" >
           <Link to='/products'>
-            <i style={{color:'#0AE2C1',borderRadius:'4px', padding: '10px', fontSize: '30px', margin: '20px', position: 'absolute', left:'10px', top:'10px'}}className="fas fa-bars"></i>
+            <i className='hamburger fas fa-bars' ></i>
           </Link>
           <Link to='/'>
-            <img style={{maxHeight:'100px', maxWidth: '90px'}}src={logo}/>
+            <img className ='logo'src={transparentLogo}/>
           </Link>
         </header>
         <Link to='/cart'>
-          <div style={{color: 'black',padding: '10px', fontSize: '20px',backgroundColor:'#0AE2C1', borderRadius:'4px', margin: '20px', position:'absolute',right:'10px', top:'10px'}}>
-          <i className="fas fa-shopping-cart"></i>
+          <div className='cart-icon'>
+          <i className="fas fa-shopping-cart">{total? total: null}</i>
           </div>
         </Link>
-      </div>
+      </nav>
     )
   }
 }
 
-export default NavBar
+function mapStateToProps(state){
+  return {
+    cart: state.cart
+  }
+}
+
+export default connect(mapStateToProps)(NavBar)

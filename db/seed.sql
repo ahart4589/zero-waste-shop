@@ -17,3 +17,8 @@
 
 -- //products list//
 -- ('Silicone Ice Tray', 12.00, 'Silicone ice tray makes 12 ice cubes.  Includes a lid that blocks out weird flavors from your freezer and internal steel frame makes filling a breeze', 'https://cdn.shopify.com/s/files/1/1797/9639/products/Peak_Ice_Cube_Trays_Everyday_6_1512x.jpg?v=1531845902')
+
+-- CREATE TABLE orders(
+-- id SERIAL PRIMARY KEY,
+-- stripe_id TEXT
+-- );
