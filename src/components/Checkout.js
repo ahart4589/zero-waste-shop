@@ -8,7 +8,7 @@ const CURRENCY = 'USD'
 const fromDollarToCent = amount => amount * 100
 
 const sucessPayment = data => {
-  alert('Payment Sucessful')
+  alert('Payment Sucessful! Your order is on its way')
 }
 
 const errorPayment = data => {

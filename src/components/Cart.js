@@ -3,7 +3,10 @@ import {connect} from 'react-redux'
 import{Link} from 'react-router-dom'
 import { getCart, updateQuantity, deleteFromCart } from '../redux/reducer'
 
+import cart from '../style/cart.css'
+
 import Checkout from './Checkout'
+import background from '../images/sea.jpg'
 
 class Cart extends Component {
   componentDidMount(){
@@ -24,32 +27,39 @@ class Cart extends Component {
     let cart = this.props.cart.map(product => {
       total += (product.price * product.quantity)
       return (
-        <div key={product.id}>
+        <div key={product.id} className='cart'>
+        <Link to={`/products/${product.id}`}>
+          <img className='cart-img'src={product.img}></img>
+        </Link> 
           <h4>{product.name}</h4>
           <p>${product.price} each</p>
           <p>Quantity: {product.quantity}
-              <button style={{fontSize:'14px',color: 'black',padding: '6px', backgroundColor:'#0AE2C1', borderRadius:'4px', margin: '5px'}} onClick={() => this.updateQuantity(product.id, 'up', product.quantity)}>▲</button>
-              <button style={{fontSize:'14px',color: 'black',padding: '6px', backgroundColor:'#0AE2C1', borderRadius:'4px', margin: '5px'}} onClick={() => this.updateQuantity(product.id, 'down', product.quantity)}>▼</button>
-              <button style={{color: 'black',fontWeight:'bold', padding: '8px', backgroundColor:'#0AE2C1', borderRadius:'4px', margin: '5px'}} onClick={() => this.props.deleteFromCart(product.id)}>Remove</button>
+              <button className='cart-arrow-button'style={{}} onClick={() => this.updateQuantity(product.id, 'up', product.quantity)}>▲</button>
+              <button  className='cart-arrow-button' onClick={() => this.updateQuantity(product.id, 'down', product.quantity)}>▼</button>
+              <button className='cart-remove-button' onClick={() => this.props.deleteFromCart(product.id)}>Remove</button>
           </p>
+          <br/>
         </div>
       )
     })
     return (
-      <div style={{backgroundColor:'black', height: '100vh', widith:'100%', color: '#0AE2C1', marginTop: '100px'}}>
-        <h1 style={{color: '#0AE2C1', paddingTop: '20px', paddingBottom: '15px'}}>Cart</h1>
+      <div className='main-cart'style={{height: '100vh', widith:'100%', color: '#0AE2C1', backgroundImage: `url(${background})`, backgroundSize: 'cover', overflow:'auto'}}>
+        <h1 className='cart-heading'>Cart</h1>
         <Link to='/products'>
-            <button style={{color: 'black',padding: '10px', backgroundColor:'#0AE2C1', borderRadius:'4px', margin: '20px', fontSize:'14px',fontWeight:'bold'}}>Continue Shopping</button>
+            <button className='continue-button'>Continue Shopping</button>
         </Link>
-        {cart}
+        <div className='cart-container'>
+          {cart}
+        </div>
         <br/>
-        <p style={{marginBottom:'20px'}}>Cart Total: ${total}</p>
-        {/* <button style={{color: 'black', fontSize:'14px',fontWeight:'bold',padding: '12px', backgroundColor:'#0AE2C1', borderRadius:'4px', margin: '20px'}}>Checkout</button> */}
-        <Checkout
-          name={'Zero Waste Shop'}
-          description={'Purchase'}
-          amount={total}
-          />
+        <div className='cart-total'>
+          <p >Cart Total: ${total}</p>
+          <Checkout
+            name={'Zero Waste Shop'}
+            description={'Purchase'}
+            amount={total}
+            />
+        </div>
       </div>
     )
   }

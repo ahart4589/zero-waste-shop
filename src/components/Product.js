@@ -26,16 +26,14 @@ class Product extends Component {
     let {product} = this.props
     return (
       <div>
-        <div key={product.id}>
-        <Link to={`/products/${product.id}`}>
-          <img style={{maxWidth:'300px', maxHeight:'300px'}} src={product.img}/>
-        </Link>
-          <h3 style={{color: '#0AE2C1',fontWeight:'bold'}}>{product.name}</h3>
-          <br/>
-          <p style={{color: '#0AE2C1'}}>${product.price}</p>
-          {/* <p>{product.description}</p> */}
-        </div>
-        <button style={{color: 'black',padding: '12px', backgroundColor:'#0AE2C1', borderRadius:'4px', margin: '20px', fontWeight: 'bold', fontSize: '14px', marginBottom:'35px'}} onClick={() => this.addProductToCart(product.id)}>Add to Cart</button>
+          <div className='products' key={product.id}>
+            <Link to={`/products/${product.id}`}>
+              <img src={product.img}/>
+            </Link>
+            <h3>{product.name}</h3>
+            <p>${product.price}</p>
+            <button className='product-button' onClick={() => this.addProductToCart(product.id)}>Add to Cart</button>
+          </div>
       </div>
     )
   }

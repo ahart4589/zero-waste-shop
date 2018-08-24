@@ -1,0 +1,118 @@
+.all-products {
+  font-family: Raleway;
+  letter-spacing: 2px;
+  padding: 20px;
+  color:#78EBEE;
+  margin-top: 120px;
+  font-size: 40px;
+  /* text-shadow: 2px 2px #1F2833; */
+  margin-bottom: 20px;
+}
+
+.products {
+  font-family: Poppins;
+  letter-spacing: 1px;
+  color: #78EBEE;
+  font-size: 20px;
+}
+
+.products img {
+  width: 75vw;
+  border-radius: 6px;
+}
+
+.products p {
+  font-weight: normal;
+}
+
+.product-button {
+  color: #1F2833;
+  padding: 8px;
+  background-color:#45A29E;
+  border-radius:4px;
+  margin: 20px;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom:35px;
+  border-color: #45A29E;
+  font-family:Poppins;
+  letter-spacing: 2px;
+  outline: none;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.product-button:hover {
+  color:#45A29E;
+  background-color: #1F2833;
+  border-color: #1F2833;
+}
+
+.product-details-container {
+  color: #78EBEE;
+  font-size: 25px;
+  font-family: Poppins;
+}
+
+.product-details-container img{
+  width: 80vw;
+  margin:20px;
+  margin-top: 140px;
+  border-radius: 6px;
+}
+
+.description {
+  margin-bottom: 20px;
+  margin-right: 30px;
+  margin-left: 30px;
+
+  font-size: 20px;
+  color: #C5C6C7
+}
+
+.products-back {
+  color: #78EBEE;
+  padding: 11px;
+  background-color:#1F2833;
+  border-radius:4px;
+  margin: 20px;
+  font-size: 22px;
+  letter-spacing: 1px;
+  font-family:poppins;
+  border-color: #1F2833;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+@media(min-width:1100px){
+  .products-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+  }
+  .products {
+    width: 30vw;
+  }
+  .products img {
+    width: 30vw;
+    min-height: 20vh;
+  }
+  .product-details {
+    display: flex;
+    flex-direction: row;
+    margin-top: 70px;
+  }
+  #details-img {
+    width: 300px;
+    height: 300px;
+    margin-left: 100px
+  }
+  .details-info {
+    margin-top: 180px;
+    max-width: 800px;
+    position: absolute;
+    right: 100px
+  }
+  .products-back {
+    position: fixed;
+    left: 100px
+  }
+}

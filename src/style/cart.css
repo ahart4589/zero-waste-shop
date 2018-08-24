@@ -1,0 +1,121 @@
+.cart {
+  color: #78EBEE;
+  font-family: Poppins
+}
+
+.cart h1{
+  color: #78EBEE;
+  padding-top: 20px;
+  margin-top:120px;
+  padding-bottom: 10px;
+  font-size: 50px;
+  font-family: Raleway;
+  letter-spacing: 2px;
+}
+.cart-heading {
+  color: #78EBEE;
+  padding-top: 20px;
+  margin-top:120px;
+  padding-bottom: 10px;
+  font-size: 50px;
+  font-family: Raleway;
+  letter-spacing: 2px;
+}
+
+.cart h4 {
+  color: #78EBEE;
+  font-size: 25px;
+  font-family: Raleway
+}
+
+.continue-button {
+  color: #78EBEE;
+  padding: 11px;
+  background-color:#1F2833;
+  border-radius:4px;
+  font-size: 22px;
+  letter-spacing: 1px;
+  font-family:poppins;
+  border-color: #1F2833;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+
+.continue-button:hover {
+  color: #1F2833;
+  background-color: #78EBEE;
+}
+
+.cart-img {
+  display: none
+}
+
+.cart-total {
+  color: #78EBEE;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  font-size: 30px;
+  font-family: Poppins;
+  letter-spacing: 1px;
+}
+
+.cart-arrow-button {
+  font-size:14px;
+  color:#1F2833;
+  padding: 6px;
+  background-color:#45A29E;
+  border-color: #45A29E;
+  border-radius:4px;
+  margin: 5px;
+  outline: none;
+}
+
+.cart-remove-button {
+  color: #78EBEE;
+  /* font-weight:bold; */
+  font-size: 15px;
+  padding: 8px;
+  background-color:#1F2833;
+  border-color: #1F2833;
+  border-radius:4px;
+  margin: 5px;
+  outline: none;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+@media(min-width:1100px){
+  .cart-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .cart {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-bottom: 20px
+
+  }
+  .cart-img {
+    display: initial;
+    width: 200px;
+    height: 200px;
+    border-radius: 6px;
+    margin-bottom: 10px
+  }
+  .cart-total {
+    align-self: baseline;
+    margin-top: 0px;
+    font-size: 30px;
+  }
+  .main-cart {
+    background-color:#0B0C10
+  }
+  .cart h4 {
+    margin-top: 78px;
+  }
+  .cart p {
+    margin-top: 78px;
+  }
+}

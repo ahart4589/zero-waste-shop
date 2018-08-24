@@ -1,22 +1,32 @@
 import React, { Component } from 'react'
 
+
 export default function WithScroll(WrappedComponent) {
   return class extends Component {
     componentDidMount() {
-      window.addEventListener('scroll', this.handleScroll);
+      window.addEventListener('scroll', this.handleScroll, true);
     }
   
     componentWillUnmount() {
       window.removeEventListener('scroll', this.handleScroll)
     }
-  
+
     handleScroll = (e) => {
-      console.log('aloha')
       let navbar = document.querySelector('#navbar')
-      if (window.scrollY <= 100) {
-        navbar.className = ''
-      } else {
-        navbar.className = 'scroll'
+
+      if(e.target.scrollTop || e.target.scrollTop === 0) {
+        if (e.target.scrollTop <= 75) {
+          navbar.className = ''
+        } else {
+          navbar.className = 'scroll'
+        }
+      }
+      else {
+          if (e.target.scrollingElement.scrollTop <= 100) {
+            navbar.className = ''
+          } else {
+            navbar.className = 'scroll'
+          }
       }
     }
   

@@ -1,0 +1,271 @@
+
+nav {
+  height:120px;
+  width: 100%; 
+  background-color: transparent;
+  top: 0; 
+  /* border:1px solid #78EBEE; */
+  position: fixed;
+  box-sizing: border-box;
+  /* box-shadow: 0px 4px 7px #777; */
+  transition: background-color 0.4s ease-out;
+}
+
+nav.scroll {
+  background-color: #1F2833;
+  color: white
+}
+
+.hamburger {
+  color:#1F2833;
+  background-color: #78EBEE;
+  border-radius:4px;
+  padding: 10px;
+  font-size: 30px;
+  margin: 20px;
+  position: absolute;
+  left:10px;
+  top:10px;
+}
+
+.logo {
+ padding-top: 10px; 
+ width: 95px;
+ height:100px;
+}
+.nav-shop-all {
+  display: none;
+}
+.nav-why {
+  display: none;
+}
+
+.cart-text {
+  display: none;
+}
+
+.cart-icon {
+  display: initial;
+  color: #1F2833;
+  padding: 10px;
+  font-size: 25px;
+  background-color:#78EBEE;
+  border-radius:4px;
+  margin: 20px;
+  position:absolute;
+  right:10px;
+  top:10px;
+}
+
+.full-zero-header {
+  display: none;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown {
+  background-color: #1F2833;
+  height: 45vh;
+  width: 92vw;
+  margin-top: 75px;
+  position: absolute;
+  top:35px;
+  color: #78EBEE;
+  align-self: center;
+}
+
+.dropdown button {
+  font-size: 40px;
+  font-family: Raleway;
+  letter-spacing: 1px;
+  padding: 15px;
+  color:#78EBEE
+}
+
+.landing {
+  display: flex;
+  flex-direction: column;
+}
+
+.zero-header {
+  margin-top: 120px;
+  margin-bottom: 20px;
+  letter-spacing: 5px;
+  color:#78EBEE;
+  padding: 20px;
+  font-family: Raleway;
+  font-size: 40px;
+  text-shadow: 2px 2px #1F2833;
+  border: solid 5px #78EBEE;
+  margin-right: 20px;
+  margin-left: 20px;
+  /* outline: solid 4px black */
+}
+
+.landing-button {
+  color: #78EBEE;
+  padding: 11px;
+  background-color:#1F2833;
+  border-radius:4px;
+  font-size: 22px;
+  letter-spacing: 1px;
+  font-family:poppins;
+  border-color: #1F2833;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  margin-bottom:30px;
+}
+.landing-button:hover {
+  color: #1F2833;
+  background-color: #78EBEE;
+
+}
+.landing-button:hover a {
+  color: #1F2833;
+  background-color: #78EBEE;
+
+}
+.landing-button a {
+  text-decoration: none;
+  color: #78EBEE;
+}
+
+.button-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-img {
+  width:80vw;
+  margin: 20px;
+  border-radius: 6px;
+}
+.opt-landing-img {
+  display: none;
+  width:80vw;
+  margin: 20px;
+  border-radius: 6px;
+}
+
+.why-header {
+  color:#78EBEE;
+  padding: 20px;
+  font-family: raleway;
+  font-size: 40px;
+  margin-top: 10px;
+  letter-spacing: 3px;
+}
+
+.landing-bottom-button {
+  color: #78EBEE;
+  padding: 11px;
+  background-color:#1F2833;
+  border-radius:4px;
+  font-size: 22px;
+  letter-spacing: 1px;
+  font-family:poppins;
+  border-color: #1F2833;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+@media(min-width:1100px){
+  nav {
+    display: flex;
+    flex-direction: column;
+  }
+  .nav-header {
+    display: flex;
+    flex-direction: row;
+  }
+  .hamburger {
+    display: none;
+  }
+  .logo {
+    align-self: flex-start;
+    width: 105px;
+    height:110px;
+  }
+  .nav-links {
+    justify-content: flex-end;
+    display: flex;
+    flex-direction: row;
+    margin-right: 20px;
+    margin-bottom: 25px;
+    font-size: 20px;
+  }
+  .nav-shop-all {
+    display: initial;
+    color:#78EBEE;
+    font-family: Raleway;
+    margin-left: 30px;
+  }
+  .nav-shop-all:hover {
+    color: #45A29E
+  }
+  .nav-why {
+    display: initial;
+    color:#78EBEE;
+    font-family: Raleway;
+    margin-left: 30px;
+  }
+  .nav-why:hover {
+    color: #45A29E
+  }
+  .cart-icon {
+    display: none;
+  }
+  .cart-text {
+    display: initial;
+    color:#78EBEE;
+    font-family: Raleway;
+    margin-left: 30px;
+  }
+  .cart-text:hover {
+    color: #45A29E
+  }
+  .full-zero-header {
+    display: initial;
+    letter-spacing: 5px;
+    
+    padding: 10px;
+    font-family: Raleway;
+    font-size: 40px;
+    text-shadow: 2px 2px #1F2833;
+    margin-top: 45px;
+  }
+  .full-zero-header a {
+    color:#78EBEE;
+  }
+  .zero-header {
+    display: none;
+    width: 50vw;
+    align-self: center;
+  }
+  .landing-button {
+    display: none;
+    margin-top: 180px;
+  }
+  .landing-imgs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    min-height: 30vw;
+    margin-top: 180px
+  }
+  .landing-img {
+    width: 30vw;
+    height: 90%;
+  }
+  .opt-landing-img {
+    display: initial;
+    width: 30vw;
+    height: 90%;
+  }
+}

@@ -1,11 +1,12 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import Product from './Product'
 
 import { getProducts, getCart } from '../redux/reducer';
-import ProductDetails from './ProductDetails';
 
+
+import Product from './Product'
 import background from '../images/sea.jpg'
+import product from '../style/product.css'
 
 
 class ProductList extends Component {
@@ -15,6 +16,7 @@ class ProductList extends Component {
     
   }
 
+
   render(){
     let productList = this.props.productList.map(product => {
       return(
@@ -22,15 +24,17 @@ class ProductList extends Component {
           <Product
             product={product}
             key={product.id}
-            // updateCart={this.props.updateCart}
             />
       
         )
     })
+    // let {handleScroll} = this.props
     return(
-      <div style={{backgroundColor: 'black', backgroundImage: `url(${background})`, backgroundSize: 'cover', overflow:'auto', height: '100vh'}}>
-           <h2 style={{padding: '20px', color: '#0AE2C1', marginTop: '100px',}}>All Products</h2>
+      <div style={{backgroundColor: '#0B0C10', backgroundImage: `url(${background})`, backgroundSize: 'cover', overflow:'auto', height: '100vh'}}>
+           <h2 className='all-products' >All Products</h2>
+           <div className='products-container'>
           {productList}
+           </div>
       </div>
       
     )

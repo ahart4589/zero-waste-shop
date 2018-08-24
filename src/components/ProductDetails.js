@@ -31,23 +31,25 @@ class ProductDetails extends Component {
   render (){
     let {product} = this.props
     return(
-       <div style={{backgroundColor: 'black', backgroundImage: `url(${background})`, backgroundSize: 'cover', overflow:'auto', height: '100vh'}}>
-        {this.props.product && <div>
-          <img style={{maxWidth:'300px', maxHeight:'300px', margin:'20px', marginTop: '120px'}}src={this.props.product.img}/>
-          <h3 style={{color:'#0AE2C1'}}>{this.props.product.name}</h3>
-          <br/>
-          <p style={{color:'#0AE2C1'}}>${this.props.product.price}</p>
-          <br/>
-          <p style={{margin:'20px', color: '#0AE2C1'}}>{this.props.product.description}</p>
-          {/* <input placeholder='quantity' style={{backgroundColor:'#8B88F0'}} type='text' value={this.props.quantity}/> */}
+      <div className='product-details-container'style={{backgroundColor: '#0B0C10', backgroundSize: 'cover', overflow:'auto', height: '100vh'}}>
+        {this.props.product && <div className='product-details'>
+          <img id='details-img'src={this.props.product.img}/>
+          <div className='details-info'>
+            <h3>{this.props.product.name}</h3>
+            <p>${this.props.product.price}</p>
+            <button className='product-button' onClick={() => this.addProductToCart(product.id)}>Add to Cart</button>
+            <br/>
+            <p className='description'>{this.props.product.description}</p>
+            {/* <input placeholder='quantity' style={{backgroundColor:'#8B88F0'}} type='text' value={this.props.quantity}/> */}
+            </div>
           </div>
           }
         <Link to='/products'>
-            <button style={{color: 'black',padding: '10px', backgroundColor:'#0AE2C1', borderRadius:'4px', margin: '20px', fontSize:'14px',fontWeight:'bold'}}>
+          <button className='products-back'>
             Back to all products
-            </button>
+          </button>
         </Link>
-        <button style={{color: 'black',padding: '10px', backgroundColor:'#0AE2C1', borderRadius:'4px', margin: '20px', fontSize:'14px',fontWeight:'bold'}} onClick={() => this.addProductToCart(product.id)}>Add to Cart</button>
+
       </div>
     )
   }
