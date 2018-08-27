@@ -3,6 +3,7 @@ require ('dotenv').config()
 const express = require ('express')
       , bodyParser = require ('body-parser')
       , massive = require ('massive')
+      ,session = require ('express-session')
 
 
 
@@ -19,6 +20,12 @@ massive(CONNECTION_STRING).then(db => {
   app.set('db', db)
   console.log('db is connected')
 })
+
+
+
+// app.use(session({
+  
+// }))
 
 app.get('/api/products', controller.getProducts)
 app.get('/api/cart', controller.getCart)
