@@ -84,6 +84,17 @@
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
+.thankyou {
+  margin-top:200px;
+  color: #78EBEE;
+  padding-top: 20px;
+  margin-top:120px;
+  padding-bottom: 10px;
+  font-size: 50px;
+  font-family: Raleway;
+  letter-spacing: 2px;
+}
+
 @media(min-width:1100px){
   .cart-container {
     display: flex;

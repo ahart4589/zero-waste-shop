@@ -1,9 +1,10 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-import { getCart } from '../redux/reducer'
+import { getCart, logout } from '../redux/reducer'
 import main from '../style/navbarlanding.css'
 import Menu from './Menu'
+import Search from './Search'
 
 import logo from '../images/new_logo_transparent.png'
 
@@ -12,6 +13,19 @@ class NavBar extends Component {
   componentDidMount(){
     this.props.getCart()
   }
+
+  // Authentication
+  login = () => {
+    let auth0domain = `https://${process.env.REACT_APP_AUTH0_DOMAIN}`
+    let clientId = process.env.REACT_APP_AUTH0_CLIENT_ID
+    let scope = encodeURIComponent('openid profile email')
+    let redirectUri = encodeURIComponent(`${window.location.origin}/auth/callback`)
+
+    let location = `${auth0domain}/authorize?client_id=${clientId}&scope=${scope}&redirect_uri=${redirectUri}&response_type=code`
+
+    window.location = location
+  }
+
   render(){
   let total = 0
   for (let i = 0; i<this.props.cart.length; i++){
@@ -40,6 +54,16 @@ class NavBar extends Component {
               Why Zero Waste?
             </div>
           </Link>
+          {/* Authentication */}
+          <div className='login-logout'>
+            {this.props.user ?
+            <div>
+              <h1 style={{fontSize: '18px', fontFamily: 'Raleway', color:'#45A29E', position: 'absolute', top: '10px', right: '14px'}}>Logged in as {this.props.user.name}</h1>
+              <button className='login-logout-buttons' onClick={this.props.logout}>Logout</button>
+            </div>:
+            <button className='login-logout-buttons' onClick={this.login}>Login</button>}
+          </div>
+
           <Link to='/cart'>
             <div className='cart-icon'>
               <i className="fas fa-shopping-cart">{total? total: null}</i>
@@ -49,7 +73,7 @@ class NavBar extends Component {
             </div>
           </Link>
         </div>
-        <Menu/>
+        <Menu user={this.props.user} login={this.login} logout={this.props.logout}/>
       </nav>
     )
   }
@@ -57,8 +81,9 @@ class NavBar extends Component {
 
 function mapStateToProps(state){
   return {
-    cart: state.cart
+    cart: state.cart,
+    user: state.user
   }
 }
 
-export default connect(mapStateToProps,{getCart})(NavBar)
+export default connect(mapStateToProps,{getCart, logout})(NavBar)

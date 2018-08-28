@@ -44,11 +44,11 @@ class ProductDetails extends Component {
             </div>
           </div>
           }
-        <Link to='/products'>
-          <button className='products-back'>
+        <button className='products-back'>
+          <Link to='/products'>
             Back to all products
-          </button>
-        </Link>
+          </Link>
+        </button>
 
       </div>
     )

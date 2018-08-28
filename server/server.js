@@ -8,6 +8,7 @@ const express = require ('express')
 
 
 const controller = require ('./controller')
+const authCtrl = require('./authCtrl')
 
 const app = express()
 
@@ -22,10 +23,12 @@ massive(CONNECTION_STRING).then(db => {
 })
 
 
-
-// app.use(session({
-  
-// }))
+// Authentication
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  saveUninitialized: false,
+  resave: false
+}))
 
 app.get('/api/products', controller.getProducts)
 app.get('/api/cart', controller.getCart)
@@ -37,6 +40,17 @@ app.put('/api/cart/:id', controller.updateQuantity)
 
 app.delete('/api/cart/:id', controller.deleteFromCart)
 app.post('/api/checkout', controller.checkout)
+
+
+// Authentication
+app.get('/auth/callback',authCtrl.auth)
+app.get('/api/currentUser', (req,res) => {
+  res.send(req.session.user)
+} )
+app.get('/api/logout', (req, res) => {
+  req.session.destroy()
+  res.sendStatus(200)
+})
 
 
 app.listen(SERVER_PORT, () => console.log('Server is running on port:', SERVER_PORT))

@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 
+
 export default class Menu extends Component{
   constructor(){
     super()
@@ -20,9 +21,9 @@ export default class Menu extends Component{
 
   closeMenu = (e) => {
     // if (!this.dropdownMenu.contains(e.target)) {
-      this.setState({showMenu: false}, () => {
-        document.removeEventListener('click', this.closeMenu)
-      })
+        this.setState({showMenu: false}, () => {
+          document.removeEventListener('click', this.closeMenu)
+        })
     // }
   }
 
@@ -50,6 +51,15 @@ export default class Menu extends Component{
                   <Link to='/why'>
                     <button>Why Zero Waste?</button>
                   </Link>
+                  <br/>
+                  <div>
+                    {this.props.user?
+                      <div>
+                        <button onClick={this.props.logout}>Logout</button>
+                        <h1>Logged in as {this.props.user.name}</h1>
+                      </div>:
+                      <button onClick={this.props.login}>Login</button>}
+                  </div>
                 </div>
               )
               : (

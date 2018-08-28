@@ -5,6 +5,12 @@ import background from '../images/sea.jpg'
 import shopping from '../images/shopping.png'
 import jars from '../images/jars.png'
 import straws from '../images/straws.png'
+import sacks from '../images/sacks.png'
+import flowers from '../images/flowers.png'
+import spice from '../images/spice.png'
+import nuts from '../images/nuts.png'
+
+
 
 class Landing extends Component {
 
@@ -21,25 +27,34 @@ class Landing extends Component {
             </button>
         </div>
         <div className='landing-imgs'>
-        <Link to='/products/2'>
+        <Link to='/products/16'>
           <img className='opt-landing-img' src={straws}></img>
         </Link>
-        <Link to='/products/1'>
+        <Link to='/products/9'>
             <img className='landing-img' src={shopping}></img>
         </Link>
         <br/>
-        <Link to='/products/3'>
+        <Link to='/products/11'>
             <img className='landing-img' src={jars}></img>
+        </Link>
+        <Link to='/products/11'>
+            <img className='opt-landing-img' src={flowers}></img>
+        </Link>
+        <Link to='/products/11'>
+            <img className='opt-landing-img' src={nuts}></img>
+        </Link>
+        <Link to='/products/11'>
+            <img className='opt-landing-img' src={sacks}></img>
         </Link>
         </div>
         <h2 className='why-header'>
           Help keep plastics out of our oceans
         </h2>
-        <Link to='/products'>
-          <button className='landing-bottom-button'>
-          Shop All Zero Waste Products
-          </button>
-        </Link>
+        <button className='button-container landing-bottom-button'>
+          <Link to='/products'>
+            Shop All Zero Waste Products
+          </Link>
+        </button>
       </div>
     )
   }

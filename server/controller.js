@@ -81,7 +81,12 @@ module.exports = {
     const db = req.app.get('db')
     stripe.charges.create(req.body)
     .then((results) => {
-      db.add_to_orders(results.id).then(() => {
+      let id = req.session.user ? req.session.user.id : null
+      db.add_to_orders([results.id, id]).then(() => {
+        // get cart from db
+        // map over items in cart
+        // insert each item into products_order db by id 
+        // insert stripe id (results.id)
         db.checkout()
         .then(results => {
           res.status(200).send(results)

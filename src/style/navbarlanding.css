@@ -40,6 +40,10 @@ nav.scroll {
   display: none;
 }
 
+.login-logout {
+  display: none;
+}
+
 .cart-text {
   display: none;
 }
@@ -68,13 +72,17 @@ nav.scroll {
 
 .dropdown {
   background-color: #1F2833;
-  height: 45vh;
+  height: 68vh;
   width: 92vw;
   margin-top: 75px;
   position: absolute;
   top:35px;
-  color: #78EBEE;
+  color: #45A29E;
   align-self: center;
+  font-size: 16px;
+  font-family: Raleway;
+  letter-spacing: 1px;
+  padding: 20px;
 }
 
 .dropdown button {
@@ -82,7 +90,7 @@ nav.scroll {
   font-family: Raleway;
   letter-spacing: 1px;
   padding: 15px;
-  color:#78EBEE
+  color:#78EBEE;
 }
 
 .landing {
@@ -172,6 +180,32 @@ nav.scroll {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   margin-top: 30px;
   margin-bottom: 30px;
+  width: 400px;
+  align-self: center
+}
+.landing-bottom-button:hover {
+  color: #1F2833;
+  background-color: #78EBEE;
+
+}
+.landing-bottom-button:hover a {
+  color: #1F2833;
+  background-color: #78EBEE;
+
+}
+.landing-bottom-button a {
+  text-decoration: none;
+  color: #78EBEE;
+}
+
+.footer {
+  background-Color: #1F2833;
+  height: 60px;
+  color: #78EBEE;
+  padding: 20px;
+  position:relative;
+  /* bottom:0px; */
+  width: 100%;
 }
 
 @media(min-width:1100px){
@@ -217,6 +251,22 @@ nav.scroll {
   .nav-why:hover {
     color: #45A29E
   }
+  .login-logout {
+    display: initial;
+  }
+  .login-logout-buttons {
+    color:#78EBEE;
+    font-family: Raleway;
+    margin-left: 30px;
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 20px;
+  }
+  .login-logout-buttons:hover {
+    color: #45A29E
+  }
+
   .cart-icon {
     display: none;
   }
@@ -261,11 +311,12 @@ nav.scroll {
   }
   .landing-img {
     width: 30vw;
-    height: 90%;
+    height: 25vw;
   }
   .opt-landing-img {
     display: initial;
     width: 30vw;
-    height: 90%;
+    height: 25vw;
   }
+
 }

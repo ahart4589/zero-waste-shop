@@ -1,3 +1,6 @@
+
+
+
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 
@@ -10,33 +13,51 @@ import product from '../style/product.css'
 
 
 class ProductList extends Component {
-
+  constructor(){
+        super()
+        this.state = {
+          searchProducts: ''
+        }
+      }
   componentDidMount() {
-    this.props.getProducts()
-    
+    this.props.getProducts() 
+  }
+
+  updateProductsSearch = (e) => {
+    this.setState({
+      searchProducts: e.target.value
+    })
   }
 
 
   render(){
-    let productList = this.props.productList.map(product => {
-      return(
-  
+    const {searchProducts} = this.state
+    const filteredProducts = this.props.productList.filter(product => {
+      if (this.state.searchProducts){
+        return product.name.toLowerCase().indexOf(searchProducts.toLowerCase()) !== -1
+      } else {
+        return true
+      }
+    })
+    let filteredProductList = filteredProducts.map(product => {
+      return( 
           <Product
             product={product}
             key={product.id}
             />
-      
         )
     })
-    // let {handleScroll} = this.props
     return(
       <div style={{backgroundColor: '#0B0C10', backgroundImage: `url(${background})`, backgroundSize: 'cover', overflow:'auto', height: '100vh'}}>
            <h2 className='all-products' >All Products</h2>
+             <input className='product-searchbar' type='text' placeholder='Search Products'
+                value={this.state.searchProducts}
+                onChange={this.updateProductsSearch}/>
            <div className='products-container'>
-          {productList}
+          {filteredProductList}
            </div>
+           
       </div>
-      
     )
   }  
 }

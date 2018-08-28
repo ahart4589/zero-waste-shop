@@ -3,7 +3,9 @@ import axios from 'axios'
 let initialState = {
   productList: [],
   product: null,
-  cart: []
+  cart: [],
+  data: null,
+  user: null
 }
 
 const FULFILLED = '_FULFILLED'
@@ -15,6 +17,11 @@ const UPDATE_QUANTITY = 'UPDATE_QUANTITY'
 const DELETE_FROM_CART = 'DELETE_FROM_CART'
 const CHECKOUT = 'CHECKOUT'
 const EMPTY_CART = 'EMPTY_CART'
+
+// Authentication
+const GET_USER = 'GET_USER'
+const LOGOUT_USER = 'LOGOUT_USER'
+
 
 export default function reducer(state = initialState, action) {
   switch(action.type) {
@@ -34,6 +41,13 @@ export default function reducer(state = initialState, action) {
         return {...state, cart: action.payload}
     case EMPTY_CART:
         return { ...state, cart: [] }
+
+    // Authentication
+    case GET_USER + FULFILLED:
+        return {...state, user: action.payload.data}
+    case LOGOUT_USER + FULFILLED:
+        return {...state, user: null}
+
     default:
     return state
 
@@ -104,5 +118,20 @@ export function deleteFromCart(id){
 export function emptyCart(){
   return {
     type: EMPTY_CART
+  }
+}
+
+// Authentication
+export function getUser(){
+  return {
+    type: GET_USER,
+    payload: axios.get('api/currentUser')
+  }
+}
+
+export function logout(){
+  return{
+    type: LOGOUT_USER,
+    payload: axios.get('/api/logout')
   }
 }

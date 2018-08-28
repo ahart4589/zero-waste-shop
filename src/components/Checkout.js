@@ -3,19 +3,20 @@ import axios from 'axios'
 import StripeCheckout from 'react-stripe-checkout'
 import {connect} from 'react-redux'
 import {emptyCart} from '../redux/reducer'
+import {withRouter} from 'react-router-dom'
 
 const CURRENCY = 'USD'
 const fromDollarToCent = amount => amount * 100
 
 const sucessPayment = data => {
-  alert('Payment Sucessful! Your order is on its way')
+  alert('Payment Sucessful!')
 }
 
 const errorPayment = data => {
-  alert('Payment error')
+  alert('Payment error', data)
 }
 
-const onToken = (amount, description, emptyCart) => token =>
+const onToken = (amount, description, emptyCart, history) => token =>
   axios.post(process.env.REACT_APP_PAYMENT_SERVER_URL,
       {
         description,
@@ -23,21 +24,26 @@ const onToken = (amount, description, emptyCart) => token =>
         currency: CURRENCY,
         amount,
       })
-      .then(sucessPayment)
-      .then(() => emptyCart())
-      .catch(errorPayment)
+      .then(() => {
+      sucessPayment()
+      emptyCart()
+      history.push('/thankyou')
+    })
+    .then(() => emptyCart())
+    .catch(errorPayment)
 
-const Checkout = ({name, description, amount, emptyCart}) => {
+
+const Checkout = ({name, description, amount, emptyCart, history}) => {
   let amountInCents = fromDollarToCent(amount)
   return <StripeCheckout
     name={name}
     description={description}
     amount={amountInCents}
-    token={onToken(amountInCents, description, emptyCart)}
+    token={onToken(amountInCents, description, emptyCart, history)}
     currency={CURRENCY}
     stripeKey={process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY}
   />
 }
 
 
-export default connect(null,{emptyCart})(Checkout)
+export default withRouter(connect(null,{emptyCart})(Checkout))
