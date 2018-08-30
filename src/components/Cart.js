@@ -6,7 +6,7 @@ import { getCart, updateQuantity, deleteFromCart } from '../redux/reducer'
 import cart from '../style/cart.css'
 
 import Checkout from './Checkout'
-import background from '../images/sea.jpg'
+
 
 class Cart extends Component {
   componentDidMount(){
@@ -43,7 +43,7 @@ class Cart extends Component {
       )
     })
     return (
-      <div className='main-cart'style={{height: '100vh', widith:'100%', color: '#0AE2C1', backgroundImage: `url(${background})`, backgroundSize: 'cover', overflow:'auto'}}>
+      <div className='main-cart background'>
         <h1 className='cart-heading'>Cart</h1>
         <Link to='/products'>
             <button className='continue-button'>Continue Shopping</button>

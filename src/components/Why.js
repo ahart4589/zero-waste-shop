@@ -1,14 +1,13 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-import background from '../images/sea.jpg'
 import product from '../style/product.css'
 import why from '../style/why.css'
 import info from '../images/plastic_info.jpg'
 
 export default function Why(){
   return(
-    <div className='why'style={{backgroundColor: '#0B0C10', backgroundImage: `url(${background})`, backgroundSize: 'cover', overflow:'auto', height: '100vh'}}>
+    <div className='why background'>
       <h1 className='all-products'>
         Plastics in our Oceans
       </h1>

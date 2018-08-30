@@ -48,7 +48,7 @@ class ProductList extends Component {
         )
     })
     return(
-      <div style={{backgroundColor: '#0B0C10', backgroundImage: `url(${background})`, backgroundSize: 'cover', overflow:'auto', height: '100vh'}}>
+      <div className='background'>
            <h2 className='all-products' >All Products</h2>
              <input className='product-searchbar' type='text' placeholder='Search Products'
                 value={this.state.searchProducts}

@@ -14,9 +14,11 @@ import background from '../images/sea.jpg'
         <p>
         Your order number is: 
         </p>
-        {orderId}
+        <div>
+          {orderId}
+        </div>
+        
       </div>
-
     </div>
   )
 }

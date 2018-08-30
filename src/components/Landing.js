@@ -57,7 +57,10 @@ class Landing extends Component {
         </button>
         <footer className='footer'>
           Zero Waste Shop since 2018 
-            <i className="fab fa-instagram"></i>
+            <a className='' href='https://www.instagram.com/explore/tags/zerowasteshop/?hl=en'>
+              <i className="fab fa-instagram">
+              </i>
+            </a>
             <i className="fab fa-facebook-square"></i>
         </footer>
       </div>
