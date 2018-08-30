@@ -22,6 +22,7 @@ massive(CONNECTION_STRING).then(db => {
   console.log('db is connected')
 })
 
+app.use( express.static( `${__dirname}/../build` ) );
 
 // Authentication
 app.use(session({
