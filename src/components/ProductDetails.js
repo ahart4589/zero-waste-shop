@@ -31,7 +31,7 @@ class ProductDetails extends Component {
   render (){
     let {product} = this.props
     return(
-      <div className='product-details-container'style={{backgroundColor: '#0B0C10', backgroundSize: 'cover', overflow:'auto', height: '100vh'}}>
+      <div className='product-details-container background-color'>
         {this.props.product && <div className='product-details'>
           <img id='details-img'src={this.props.product.img}/>
           <div className='details-info'>
@@ -49,10 +49,16 @@ class ProductDetails extends Component {
             Back to all products
           </Link>
         </button>
-        {/* <footer className='footer' style={{position: 'fixed', bottom: 0}}>
+        {/* <footer className='footer'>
           Zero Waste Shop since 2018 
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-facebook-square"></i>
+            <a href='https://www.instagram.com/explore/tags/zerowasteshop/?hl=en' target='_blank'>
+              <i className="fab fa-instagram">
+              </i>
+            </a>
+            <a href='https://www.facebook.com/search/str/zero+waste/keywords_search' target='_blank'>
+            <i className="fab fa-facebook-square">
+              </i>
+            </a>
         </footer> */}
       </div>
     )

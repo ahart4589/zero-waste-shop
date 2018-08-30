@@ -54,7 +54,7 @@
 .cart-total {
   color: #78EBEE;
   margin-top: 40px;
-  margin-bottom: 40px;
+  margin-bottom: 80px;
   font-size: 30px;
   font-family: Poppins;
   letter-spacing: 1px;
@@ -131,9 +131,9 @@
     margin-top: 0px;
     font-size: 30px;
   }
-  .main-cart {
+  /* .main-cart {
     background-color:#0B0C10;
-  }
+  } */
   .cart h4 {
     margin-top: 78px;
   }

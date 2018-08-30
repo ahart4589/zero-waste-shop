@@ -78,21 +78,27 @@ export default function Why(){
         MORE RESOURCES:
       </h1>
         <div className='why-links-container'>
-          <a className='why-links'    href='https://www.nationalgeographic.com/environment/planetorplastic/?beta=true'>
+          <a className='why-links'    href='https://www.nationalgeographic.com/environment/planetorplastic/?beta=true' target='_blank'>
             National Geographic
           </a>
-          <a className='why-links' href='https://www.oceanblueproject.org/oceanfacts.html'>
+          <a className='why-links' href='https://www.oceanblueproject.org/oceanfacts.html' target='_blank'>
             Ocean Blue Project
           </a>
-          <a className='why-links' href='https://oceanconservancy.org/trash-free-seas/plastics-in-the-ocean/'>
+          <a className='why-links' href='https://oceanconservancy.org/trash-free-seas/plastics-in-the-ocean/' target='_blank'>
             Ocean Conservancy
           </a>
         </div>
-        {/* <footer className='footer'>
+        <footer className='footer'>
           Zero Waste Shop since 2018 
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-facebook-square"></i>
-        </footer> */}
+            <a href='https://www.instagram.com/explore/tags/zerowasteshop/?hl=en' target='_blank'>
+              <i className="fab fa-instagram">
+              </i>
+            </a>
+            <a href='https://www.facebook.com/search/str/zero+waste/keywords_search' target='_blank'>
+            <i className="fab fa-facebook-square">
+              </i>
+            </a>
+        </footer>
     </div>
   )
 }
