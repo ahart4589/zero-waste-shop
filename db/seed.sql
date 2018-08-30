@@ -60,10 +60,17 @@
 -- ('Toilet Brush', 35.00, 'This plastic free toilet brush is the ideal non-plastic, completely natural - and ultimately compostable - toilet brush.  Brush:  37 x 7.5 x 7.5 cm / 14.5" x 3" x 3"; Stand:  25 x 12.7 cm / 9.8" x 5"', 'https://cdn.shopify.com/s/files/1/1797/9639/products/toilet_brush1_1512x.jpg?v=1534803048'),
 -- ('Natural Wool Dryer Balls', 30.00, 'The new heroes of the laundry room reduce drying time, wrinkles, and static, soften clothes naturally- keep harmful chemicals off of your laundry and dryer sheets out of landfills. 100% natural wool, muslin bag.', 'https://cdn.shopify.com/s/files/1/1797/9639/products/dryerballs_1512x.jpg?v=1523302242');
 
+
+
+
+
 -- UPDATE products
 -- SET img = 'https://cdn.shopify.com/s/files/1/1721/9289/products/Bees_Wrap_3_1024x.jpg?v=1516410409'
 -- WHERE
 --  id = 11;
+
+
+
 
 
 -- CREATE TABLE order_products(
