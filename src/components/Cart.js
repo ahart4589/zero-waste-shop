@@ -9,9 +9,9 @@ import Checkout from './Checkout'
 
 
 class Cart extends Component {
-  componentDidMount(){
-    this.props.getCart()
-  }
+  // componentDidMount(){
+  //   this.props.getCart()
+  // }
 
   updateQuantity = (id,update,quantity) => {
     if(update === 'up'){
