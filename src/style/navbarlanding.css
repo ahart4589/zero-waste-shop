@@ -88,6 +88,8 @@ nav.scroll {
 }
 
 .dropdown button {
+  background: none! important;
+  border: none;
   font-size: 40px;
   font-family: Raleway;
   letter-spacing: 1px;
@@ -385,3 +387,7 @@ nav.scroll {
     right: 20px;
   }
 }
+
+
+
+/* make sure works locally--> commit to git and push to github--> git pull in droplet--> npm run build in droplet--> pm2 restart all  */
