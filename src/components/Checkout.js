@@ -24,12 +24,11 @@ const onToken = (amount, description, emptyCart, history) => token =>
         currency: CURRENCY,
         amount,
       })
-      .then(() => {
+      .then((results) => {
       sucessPayment()
-      emptyCart()
+      emptyCart(results.data.orderId)
       history.push('/thankyou')
     })
-    .then(() => emptyCart())
     .catch(errorPayment)
 
 

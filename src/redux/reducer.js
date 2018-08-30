@@ -5,7 +5,8 @@ let initialState = {
   product: null,
   cart: [],
   data: null,
-  user: null
+  user: null,
+  orderId: null
 }
 
 const FULFILLED = '_FULFILLED'
@@ -40,8 +41,8 @@ export default function reducer(state = initialState, action) {
     case CHECKOUT + FULFILLED:
         return {...state, cart: action.payload}
     case EMPTY_CART:
-        return { ...state, cart: [] }
-
+        return { ...state, cart: [], orderId: action.payload }
+  
     // Authentication
     case GET_USER + FULFILLED:
         return {...state, user: action.payload.data}
@@ -115,9 +116,10 @@ export function deleteFromCart(id){
   }
 }
 
-export function emptyCart(){
+export function emptyCart(orderId){
   return {
-    type: EMPTY_CART
+    type: EMPTY_CART,
+    payload: orderId
   }
 }
 
@@ -135,3 +137,4 @@ export function logout(){
     payload: axios.get('/api/logout')
   }
 }
+

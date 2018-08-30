@@ -49,7 +49,11 @@ class ProductDetails extends Component {
             Back to all products
           </Link>
         </button>
-
+        {/* <footer className='footer' style={{position: 'fixed', bottom: 0}}>
+          Zero Waste Shop since 2018 
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-facebook-square"></i>
+        </footer> */}
       </div>
     )
   }

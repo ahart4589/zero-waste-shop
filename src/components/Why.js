@@ -23,7 +23,7 @@ export default function Why(){
           1 
           <br/>About 8 million metric tons of plastic are thrown into the ocean annually.
           <br/>
-          Of those, 236,000 tons are microplastics--tiny pieces of broken-dwon plastic smaller than your little fingernail.
+          Of those, 236,000 tons are microplastics--tiny pieces of broken-down plastic smaller than your little fingernail.
         </p>
         <p>
           2
@@ -43,7 +43,7 @@ export default function Why(){
         </p>
         <p>
           6
-          <br/>Many marine organisms cannot distinguish common plastic items from food.  Animals who eat plastic often starve because they cannot digest the plastic and it fills their stomachs, preventing them from eating real food.
+          <br/>Many marine organisms cannot distinguish common plastic items from food.  Animals who eat plastic often starve because they cannot digest the plastic, but it fills their stomachs, preventing them from eating real food.
         </p>
         <p>
           7
@@ -89,7 +89,11 @@ export default function Why(){
             Ocean Conservancy
           </a>
         </div>
-      
+        {/* <footer className='footer'>
+          Zero Waste Shop since 2018 
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-facebook-square"></i>
+        </footer> */}
     </div>
   )
 }

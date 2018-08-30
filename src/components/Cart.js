@@ -53,13 +53,18 @@ class Cart extends Component {
         </div>
         <br/>
         <div className='cart-total'>
-          <p >Cart Total: ${total}</p>
+          <p>Cart Total: ${total}</p>
           <Checkout
             name={'Zero Waste Shop'}
             description={'Purchase'}
             amount={total}
             />
         </div>
+        {/* <footer className='footer'>
+          Zero Waste Shop since 2018 
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-facebook-square"></i>
+        </footer> */}
       </div>
     )
   }

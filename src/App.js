@@ -33,9 +33,6 @@ class App extends Component {
             <Route component={WithScroll(Why)} path='/why'/>
             <Route component={WithScroll(Thankyou)} path='/thankyou'/>
          </Switch>
-        <footer className='footer'>
-              FOOOTTTTTEEEERRRRR
-        </footer>
       </div>
     )
   }

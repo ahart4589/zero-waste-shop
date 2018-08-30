@@ -55,6 +55,11 @@ class Landing extends Component {
             Shop All Zero Waste Products
           </Link>
         </button>
+        <footer className='footer'>
+          Zero Waste Shop since 2018 
+            <i className="fab fa-instagram"></i>
+            <i className="fab fa-facebook-square"></i>
+        </footer>
       </div>
     )
   }

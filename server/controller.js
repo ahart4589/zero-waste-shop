@@ -41,6 +41,18 @@ module.exports = {
     const db = req.app.get('db')
     const {id} = req.params
 
+    // let item = {
+    //   product_id: id,
+    //   quantity: 1
+    // }
+    // if (!req.session.cart) {
+    //   req.session.cart = [item]
+    // } else {
+    //   req.session.cart.push(item)
+    // }
+
+    // res.send(req.session.cart)
+
     db.add_to_cart([1, id])
     .then(results => {
       res.status(200).send(results)
@@ -82,20 +94,22 @@ module.exports = {
     stripe.charges.create(req.body)
     .then((results) => {
       let id = req.session.user ? req.session.user.id : null
-      db.add_to_orders([results.id, id]).then(() => {
-        // get cart from db
-        // map over items in cart
-        // insert each item into products_order db by id 
-        // insert stripe id (results.id)
-        db.checkout()
-        .then(results => {
-          res.status(200).send(results)
-        })
-        .catch(err => {
-          console.log(err)
-          res.status(500).send('Something went wrong with emptying cart')
-        })
-
+      db.add_to_orders([results.id, id]).then((id) => {
+        res.send({orderId: id[0].id})
+      db.checkout()
       })
   })}
 }
+
+
+
+
+
+
+
+// column in cart referencing user_id in users 
+// middleware on routes where checkout could occer and sees if logged in 
+
+// added to cart needs to be added to req.session
+// checkout req.session.cart
+// max age on cookie 

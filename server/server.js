@@ -27,7 +27,8 @@ massive(CONNECTION_STRING).then(db => {
 app.use(session({
   secret: process.env.SESSION_SECRET,
   saveUninitialized: false,
-  resave: false
+  resave: false,
+  cookie: {maxAge: 1000}
 }))
 
 app.get('/api/products', controller.getProducts)

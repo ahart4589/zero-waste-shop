@@ -46,7 +46,7 @@
 -- ('Large Produce Bag', 6.00, 'Perfect for produce, bulk dry ingredients and other groceries. These lightweight bags eliminate the need for disposable plastic bags all together. Cotton Drawstring Produce Bag size 12"W x 15"H','https://cdn.shopify.com/s/files/1/1797/9639/products/EcoBags_Cotton_Drawstring_Bag_2_1512x.jpg?v=1533662344'),
 -- ('Sandwich Bag', 10.00, 'This juco sandwich bag is completely plastic-free. No velcro, no nylon lining, just juco fabric, a cotton string loop and two wooden buttons to adjust the size of the bag to either a large sandwich or a small snack of nuts or fruits. Eco fabric composed of 75% jute and 25% cotton.', 'https://cdn.shopify.com/s/files/1/1797/9639/products/sandwich3_1512x.jpg?v=1523297661'),
 -- ('Beeswax Food Wrap', 20.00, 'Made with beeswax, tree resin, organic jojoba oil infused into a hemp and organic cotton cloth, wrap bunches of carrots, keep mushrooms firm and cover a half eaten plate of food for later, never use plastic wrap again! Includes: 1 Small Wrap 18 cm x 18 cm 1 Medium Wrap 25 cm x 25 cm 1 Large Wrap 33 cm x 33 cm Wrap, wash, reuse', 'https://cdn.shopify.com/s/files/1/1797/9639/products/abeego-beeswax-wrap-cilantro-variety-1_900x.jpg?v=1524756115'),
--- ('Chemex Reusable Coffee Filters, 3 cup', 15.00, 'The Chemex Coffee Filter is made from organic cotton and is a sustainable alternative to disposable filters. Besides being good for the earth, the Chemex filter also brews a rich and robust cup of coffee, absorbing some of the coffee bean oils while allowing the acids to pass through. The filter is easy to clean—simply dump out the grounds into your compost, wash the filter under hot water and air dry. The filter is very durable and is designed to last about a year before it needs to be replaced. 2 filters per pack', 'https://cdn.shopify.com/s/files/1/1721/9289/products/chemex_3_d167dd76-2212-4f54-9a8c-d174db281c1c_1024x.jpg?v=1524686513'),
+-- ('Chemex Reusable Coffee Filters, 3 cup', 15.00, 'The Chemex Coffee Filter is made from organic cotton and is a sustainable alternative to disposable filters. Besides being good for the earth, the Chemex filter also brews a rich and robust cup of coffee, absorbing some of the coffee bean oils while allowing the acids to pass through. The filter is easy to clean.', 'https://cdn.shopify.com/s/files/1/1721/9289/products/chemex_3_d167dd76-2212-4f54-9a8c-d174db281c1c_1024x.jpg?v=1524686513'),
 -- ('Stainless Steel Funnels', 16.00, 'Stainless steel funnels are useful for transferring liquids (nut milks, oils, vinegars) into bottles and adding spices and herbs into jars. The funnels feature a slender stem, ideal for fitting in narrow openings, and come in a set of three sizes held together with a clip ring. Set of 3', 'https://cdn.shopify.com/s/files/1/1721/9289/products/Funnel_6_39bf116c-cd53-479a-954f-a198e16e390f_1024x.jpg?v=1499543412'),
 -- ('Stainless Steel Ice Tray', 30.00, 'A stainless steel ice tray is a beautiful and sustainable alternative to plastic ice trays. This lever-style is durable and dishwasher safe.', 'https://cdn.shopify.com/s/files/1/1721/9289/products/Ice_Tray_6_1024x.jpg?v=1499543454'),
 -- ('Loose Leaf Tea Spoon', 9.00,'This stainless steel loose leaf tea spoon is a must for tea lovers. Lightly squeeze the handle to open the spoon and add your favorite loose leaf tea, place in a tea cup with hot water, stir and remove when you have the desired consistency. The spoon is great for travel and on-the-go and cleaning the spoon afterwards is a cinch.', 'https://cdn.shopify.com/s/files/1/1721/9289/products/Loose_Leaf_Tea_Spoon_1_1024x.jpg?v=1499789860'),
@@ -65,3 +65,11 @@
 -- WHERE
 --  id = 11;
 
+
+-- CREATE TABLE order_products(
+-- id SERIAL PRIMARY KEY,
+-- order_id INTEGER references orders(id),
+-- product_id INTEGER references products(id),
+-- quantity INTEGER,
+-- total INTEGER
+-- );
