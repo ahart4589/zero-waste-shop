@@ -85,10 +85,5 @@ VALUES
 --  id = 11;
 
 
--- CREATE TABLE order_products(
--- id SERIAL PRIMARY KEY,
--- order_id INTEGER references orders(id),
--- product_id INTEGER references products(id),
--- quantity INTEGER,
--- total INTEGER
--- );
+-- ALTER TABLE cart 
+--   ADD COLUMN users_id INTEGER references users(id);

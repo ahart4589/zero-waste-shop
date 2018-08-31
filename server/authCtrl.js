@@ -3,7 +3,7 @@ const axios = require('axios')
 module.exports = {
   auth: async (req, res) => {
     try{
-      let {code} = req.query
+      let {code, path} = req.query
       let payload = {
         client_id: process.env.REACT_APP_AUTH0_CLIENT_ID,
         client_secret: process.env.AUTH0_CLIENT_SECRET,
@@ -24,11 +24,19 @@ module.exports = {
       let users = await db.find_user_by_auth_id(userInfo.sub)
       if(users.length) {
         req.session.user = users[0]
-        res.redirect('/')
+        if(path === 'cart') {
+          res.redirect('/#/cart')
+        }else {
+          res.redirect('/')
+        }
       } else {
         let users = await db.create_user(userInfo)
         req.session.user = users[0]
-        res.redirect('/')
+        if(path === 'cart') {
+          res.redirect('/#/cart')
+        }else {
+          res.redirect('/')
+        }
       }
     } catch (error) {
       console.log('we have a problem', error)

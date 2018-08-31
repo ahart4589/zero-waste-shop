@@ -16,6 +16,17 @@ const errorPayment = data => {
   alert('Payment error', data)
 }
 
+const login = () => {
+  let auth0domain = `https://${process.env.REACT_APP_AUTH0_DOMAIN}`
+  let clientId = process.env.REACT_APP_AUTH0_CLIENT_ID
+  let scope = encodeURIComponent('openid profile email')
+  let redirectUri = encodeURIComponent(`${window.location.origin}/auth/callback?path=cart`)
+
+  let location = `${auth0domain}/authorize?client_id=${clientId}&scope=${scope}&redirect_uri=${redirectUri}&response_type=code`
+
+  window.location = location
+}
+
 const onToken = (amount, description, emptyCart, history) => token =>
   axios.post(process.env.REACT_APP_PAYMENT_SERVER_URL,
       {
@@ -32,8 +43,10 @@ const onToken = (amount, description, emptyCart, history) => token =>
     .catch(errorPayment)
 
 
-const Checkout = ({name, description, amount, emptyCart, history}) => {
+const Checkout = ({name, description, amount, emptyCart, history, user}) => {
   let amountInCents = fromDollarToCent(amount)
+  
+  if(user) {
   return <StripeCheckout
     name={name}
     description={description}
@@ -42,7 +55,16 @@ const Checkout = ({name, description, amount, emptyCart, history}) => {
     currency={CURRENCY}
     stripeKey={process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY}
   />
+  } else {
+    return <div onClick={login}>Login please</div>
+  }
+}
+
+function mapStateToProps(state) {
+  return {
+    user: state.user
+  }
 }
 
 
-export default withRouter(connect(null,{emptyCart})(Checkout))
+export default withRouter(connect(mapStateToProps,{emptyCart})(Checkout))

@@ -15,14 +15,31 @@ module.exports = {
   },
   getCart: (req, res) => {
     const db = req.app.get('db')
-
-    db.get_cart()
-    .then(results => {
-      res.status(200).send(results)
-    }).catch(err => {
-      console.log(err)
-      res.status(500).send('Something went wrong with getting cart')
-    })
+    if(req.session.user){
+      if(req.session.cart.length) {
+        let promises = []
+        db.checkout().then(() => {
+          req.session.cart.forEach(p => {
+            promises.push(db.add_to_cart(p.quantity, p.id))
+          })
+          Promise.all(promises).then(() => {
+            db.get_cart().then(results => {
+              res.status(200).send(results)
+            })
+          })
+        })
+      } else {
+        db.get_cart()
+        .then(results => {
+          res.status(200).send(results)
+        }).catch(err => {
+          console.log(err)
+          res.status(500).send('Something went wrong with getting cart')
+        })
+      }
+    }else {
+      res.send(req.session.cart)
+    }
   },
   getProduct: (req, res) => {
     const db = req.app.get('db')
@@ -40,65 +57,91 @@ module.exports = {
   addToCart: (req, res) => {
     const db = req.app.get('db')
     const {id} = req.params
-
-    // let item = {
-    //   product_id: id,
-    //   quantity: 1
-    // }
-    // if (!req.session.cart) {
-    //   req.session.cart = [item]
-    // } else {
-    //   req.session.cart.push(item)
-    // }
-
-    // res.send(req.session.cart)
-
-    db.add_to_cart([1, id])
-    .then(results => {
-      res.status(200).send(results)
-    })
-    .catch(err => {
-      console.log(err)
-      res.status(500).send('Something went wrong with adding to cart')
-    })
+    if(req.session.user){
+      db.add_to_cart([1, id])
+      .then(results => {
+        res.status(200).send(results)
+      })
+      .catch(err => {
+        console.log(err)
+        res.status(500).send('Something went wrong with adding to cart')
+      })
+    } else {
+      const index = req.session.cart.findIndex((p)=>{
+        return p.id === +id
+      })
+      if(index !== -1){
+        req.session.cart[index].quantity++
+        res.send(req.session.cart)
+      }else {
+        db.get_product(id).then(results => {
+          let product = results[0]
+          product.quantity = 1
+          req.session.cart.push(product)
+          res.send(req.session.cart)
+        })
+      }
+    }
   },
   updateQuantity: (req, res) => {
     const db = req.app.get('db')
     const {id} = req.params
     const {quantity} = req.query
 
-    db.update_quantity([+quantity, id])
-    .then(results => {
-      res.status(200).send(results)
-    })
-    .catch(err => {
-      console.log(err)
-      res.status(500).send('Something went wrong with updating quantity')
-    })
+    if(req.session.user){
+      db.update_quantity([+quantity, id])
+      .then(results => {
+        res.status(200).send(results)
+      })
+      .catch(err => {
+        console.log(err)
+        res.status(500).send('Something went wrong with updating quantity')
+      })
+    } else {
+      const index = req.session.cart.findIndex(p => p.id === +id)
+        if(index !== -1){
+          req.session.cart[index].quantity++
+          res.send(req.session.cart)
+        }
+    }
   },
   deleteFromCart: (req, res) => {
     const db = req.app.get('db')
     const {id} = req.params
 
-    db.delete_from_cart([id])
-    .then(results => {
-      res.status(200).send(results)
-    })
-    .catch(err => {
-      console.log(err)
-      res.status(500).send('Something went wrong with deleting item from cart')
-    })
+    if(req.session.user){
+      db.delete_from_cart([id])
+      .then(results => {
+        res.status(200).send(results)
+      })
+      .catch(err => {
+        console.log(err)
+        res.status(500).send('Something went wrong with deleting item from cart')
+      })
+    } else {
+      const index = req.session.cart.findIndex(p => p.id === +id)
+      if(index !== -1) {
+        req.session.cart.splice(index, 1)
+        res.send(req.session.cart)
+      }
+    }
+
   },
   checkout: (req, res) => {
     const db = req.app.get('db')
-    stripe.charges.create(req.body)
-    .then((results) => {
-      let id = req.session.user ? req.session.user.id : null
-      db.add_to_orders([results.id, id]).then((id) => {
-        res.send({orderId: id[0].id})
-      db.checkout()
-      })
-  })}
+
+    if(req.session.user){
+      stripe.charges.create(req.body)
+      .then((results) => {
+        let id = req.session.user ? req.session.user.id : null
+        db.add_to_orders([results.id, id]).then((id) => {
+          res.send({orderId: id[0].id})
+        db.checkout()
+        })
+    })} else {
+
+    }
+  }
 }
 
 
