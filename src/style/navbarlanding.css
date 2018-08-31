@@ -436,4 +436,6 @@ nav.scroll {
 
 
 
+/* Connect to droplet in terminal: ssh root@ipaddressfordroplet */
+
 /* make sure works locally--> commit to git and push to github--> git pull in droplet--> npm run build in droplet--> pm2 restart all  */

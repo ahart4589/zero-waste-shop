@@ -27,23 +27,23 @@ class Landing extends Component {
             </button>
         </div>
         <div className='landing-imgs'>
-        <Link to='/products/16'>
+        <Link to='/products/83'>
           <img className='opt-landing-img' src={straws}></img>
         </Link>
-        <Link to='/products/9'>
+        <Link to='/products/68'>
             <img className='landing-img' src={shopping}></img>
         </Link>
         <br/>
-        <Link to='/products/11'>
+        <Link to='/products/73'>
             <img className='landing-img' src={jars}></img>
         </Link>
-        <Link to='/products/11'>
+        <Link to='/products/63'>
             <img className='opt-landing-img' src={flowers}></img>
         </Link>
-        <Link to='/products/11'>
+        <Link to='/products/72'>
             <img className='opt-landing-img' src={nuts}></img>
         </Link>
-        <Link to='/products/11'>
+        <Link to='/products/64'>
             <img className='opt-landing-img' src={sacks}></img>
         </Link>
         </div>
