@@ -88,7 +88,7 @@
 .thankyou {
   color: #78EBEE;
   padding: 20px;
-  margin-top:200px;
+  margin-top:150px;
   font-size: 35px;
   font-family: Raleway;
   letter-spacing: 2px;
@@ -98,6 +98,13 @@
   padding-right: 15px;
   padding-left: 15px;
 
+}
+
+.order-number {
+  color: #1F2833;
+  background-color: #45A29E;
+  margin-right: 450px;
+  margin-left: 450px;
 }
 
 @media(min-width:700px) and (max-width: 1100px){
