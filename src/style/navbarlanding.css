@@ -405,6 +405,7 @@ nav.scroll {
   .landing-img {
     width: 30vw;
     height: 25vw;
+    /* margin: 0px 0px 20px 0px */
   }
   .opt-landing-img {
     display: initial;

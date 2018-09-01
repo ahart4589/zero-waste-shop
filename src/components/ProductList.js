@@ -8,8 +8,6 @@ import { getProducts, getCart } from '../redux/reducer';
 
 
 import Product from './Product'
-import background from '../images/sea.jpg'
-import product from '../style/product.css'
 
 
 class ProductList extends Component {
@@ -58,11 +56,11 @@ class ProductList extends Component {
            </div>
            <footer className='footer'>
           Zero Waste Shop since 2018 
-            <a href='https://www.instagram.com/explore/tags/zerowasteshop/?hl=en' target='_blank'>
+            <a href='https://www.instagram.com/explore/tags/zerowasteshop/?hl=en' target='_blank' rel="noopener noreferrer">
               <i className="fab fa-instagram">
               </i>
             </a>
-            <a className='' href='https://www.facebook.com/search/str/zero+waste/keywords_search' target='_blank'>
+            <a className='' href='https://www.facebook.com/search/str/zero+waste/keywords_search' target='_blank' rel="noopener noreferrer">
             <i className="fab fa-facebook-square">
               </i>
             </a>

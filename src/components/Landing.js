@@ -7,7 +7,6 @@ import jars from '../images/jars.png'
 import straws from '../images/straws.png'
 import sacks from '../images/sacks.png'
 import flowers from '../images/flowers.png'
-import spice from '../images/spice.png'
 import nuts from '../images/nuts.png'
 
 
@@ -28,23 +27,23 @@ class Landing extends Component {
         </div>
         <div className='landing-imgs'>
         <Link to='/products/83'>
-          <img className='opt-landing-img' src={straws}></img>
+          <img className='opt-landing-img' src={straws} alt='straw pic'></img>
         </Link>
         <Link to='/products/68'>
-            <img className='landing-img' src={shopping}></img>
+            <img className='landing-img' src={shopping} alt='shopping pic'></img>
         </Link>
         <br/>
         <Link to='/products/73'>
-            <img className='landing-img' src={jars}></img>
+            <img className='landing-img' src={jars} alt='jar pic'></img>
         </Link>
         <Link to='/products/63'>
-            <img className='opt-landing-img' src={flowers}></img>
+            <img className='opt-landing-img' src={flowers} alt='flower pic'></img>
         </Link>
         <Link to='/products/72'>
-            <img className='opt-landing-img' src={nuts}></img>
+            <img className='opt-landing-img' src={nuts} alt='nut pic'></img>
         </Link>
         <Link to='/products/64'>
-            <img className='opt-landing-img' src={sacks}></img>
+            <img className='opt-landing-img' src={sacks} alt='snacks pic'></img>
         </Link>
         </div>
         <h2 className='why-header'>
@@ -57,11 +56,11 @@ class Landing extends Component {
         </button>
         <footer className='footer'>
           Zero Waste Shop since 2018 
-            <a href='https://www.instagram.com/explore/tags/zerowasteshop/?hl=en' target='_blank'>
+            <a href='https://www.instagram.com/explore/tags/zerowasteshop/?hl=en' target='_blank' rel="noopener noreferrer">
               <i className="fab fa-instagram">
               </i>
             </a>
-            <a href='https://www.facebook.com/search/str/zero+waste/keywords_search' target='_blank'>
+            <a href='https://www.facebook.com/search/str/zero+waste/keywords_search' target='_blank' rel="noopener noreferrer">
             <i className="fab fa-facebook-square">
               </i>
             </a>

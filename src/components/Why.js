@@ -1,8 +1,7 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
 
-import product from '../style/product.css'
-import why from '../style/why.css'
+import '../style/product.css'
+import '../style/why.css'
 import info from '../images/plastic_info.jpg'
 
 export default function Why(){
@@ -73,28 +72,28 @@ export default function Why(){
           10. Strive to convert your home to zero waste
         </h2> */}
       </div>
-      <img className='why-infograph'src={info}></img>
+      <img className='why-infograph'src={info} alt='infograph'></img>
       <h1 className='all-products' style={{marginTop: '10px', marginBottom: '10px'}}>
         MORE RESOURCES:
       </h1>
         <div className='why-links-container'>
-          <a className='why-links'    href='https://www.nationalgeographic.com/environment/planetorplastic/?beta=true' target='_blank'>
+          <a className='why-links'    href='https://www.nationalgeographic.com/environment/planetorplastic/?beta=true' target='_blank' rel="noopener noreferrer">
             National Geographic
           </a>
-          <a className='why-links' href='https://www.oceanblueproject.org/oceanfacts.html' target='_blank'>
+          <a className='why-links' href='https://www.oceanblueproject.org/oceanfacts.html' target='_blank' rel="noopener noreferrer">
             Ocean Blue Project
           </a>
-          <a className='why-links' href='https://oceanconservancy.org/trash-free-seas/plastics-in-the-ocean/' target='_blank'>
+          <a className='why-links' href='https://oceanconservancy.org/trash-free-seas/plastics-in-the-ocean/' target='_blank' rel="noopener noreferrer">
             Ocean Conservancy
           </a>
         </div>
         <footer className='footer'>
           Zero Waste Shop since 2018 
-            <a href='https://www.instagram.com/explore/tags/zerowasteshop/?hl=en' target='_blank'>
+            <a href='https://www.instagram.com/explore/tags/zerowasteshop/?hl=en' target='_blank' rel="noopener noreferrer">
               <i className="fab fa-instagram">
               </i>
             </a>
-            <a href='https://www.facebook.com/search/str/zero+waste/keywords_search' target='_blank'>
+            <a href='https://www.facebook.com/search/str/zero+waste/keywords_search' target='_blank' rel="noopener noreferrer">
             <i className="fab fa-facebook-square">
               </i>
             </a>

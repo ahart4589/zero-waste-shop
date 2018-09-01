@@ -28,7 +28,7 @@ class Product extends Component {
       <div>
           <div className='products' key={product.id}>
             <Link to={`/products/${product.id}`}>
-              <img src={product.img}/>
+              <img src={product.img} alt='product pic'/>
             </Link>
             <h3>{product.name}</h3>
             <p>${product.price}</p>

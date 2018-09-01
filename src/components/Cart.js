@@ -3,15 +3,15 @@ import {connect} from 'react-redux'
 import{Link} from 'react-router-dom'
 import { getCart, updateQuantity, deleteFromCart } from '../redux/reducer'
 
-import cart from '../style/cart.css'
+import '../style/cart.css'
 
 import Checkout from './Checkout'
 
 
 class Cart extends Component {
-  // componentDidMount(){
-  //   this.props.getCart()
-  // }
+  componentDidMount(){
+    this.props.getCart()
+  }
 
   updateQuantity = (id,update,quantity) => {
     if(update === 'up'){
@@ -29,7 +29,7 @@ class Cart extends Component {
       return (
         <div key={product.id} className='cart'>
         <Link to={`/products/${product.id}`}>
-          <img className='cart-img'src={product.img}></img>
+          <img className='cart-img'src={product.img} alt='product pic'></img>
         </Link> 
           <h4>{product.name}</h4>
           <p>${product.price} each</p>

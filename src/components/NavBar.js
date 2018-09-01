@@ -2,9 +2,9 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import { getCart, logout } from '../redux/reducer'
-import main from '../style/navbarlanding.css'
+import '../style/navbarlanding.css'
 import Menu from './Menu'
-import Search from './Search'
+
 
 import logo from '../images/new_logo_transparent.png'
 
@@ -35,7 +35,7 @@ class NavBar extends Component {
       <nav id='navbar'>
         <header className="nav-header" >
           <Link to='/'>
-            <img className ='logo'src={logo}/>
+            <img className ='logo'src={logo} alt='logo'/>
           </Link>
           <h1 className='full-zero-header'>
             <Link to='/'>

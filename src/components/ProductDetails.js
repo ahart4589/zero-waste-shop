@@ -5,8 +5,6 @@ import {getProduct} from '../redux/reducer'
 import { addToCart} from '../redux/reducer'
 import { updateQuantity} from '../redux/reducer'
 
-import background from '../images/sea.jpg'
-
 
 class ProductDetails extends Component {
   componentDidMount() {
@@ -33,7 +31,7 @@ class ProductDetails extends Component {
     return(
       <div className='product-details-container background-color'>
         {this.props.product && <div className='product-details'>
-          <img id='details-img'src={this.props.product.img}/>
+          <img id='details-img'src={this.props.product.img} alt='product pic'/>
           <div className='details-info'>
             <h3>{this.props.product.name}</h3>
             <p>${this.props.product.price}</p>
