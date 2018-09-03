@@ -41,18 +41,6 @@ module.exports = {
     const db = req.app.get('db')
     const {id} = req.params
 
-    // let item = {
-    //   product_id: id,
-    //   quantity: 1
-    // }
-    // if (!req.session.cart) {
-    //   req.session.cart = [item]
-    // } else {
-    //   req.session.cart.push(item)
-    // }
-
-    // res.send(req.session.cart)
-
     db.add_to_cart([1, id])
     .then(results => {
       res.status(200).send(results)
