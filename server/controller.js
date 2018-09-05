@@ -57,17 +57,6 @@ module.exports = {
   addToCart: (req, res) => {
     const db = req.app.get('db')
     const {id} = req.params
-<<<<<<< HEAD
-
-    db.add_to_cart([1, id])
-    .then(results => {
-      res.status(200).send(results)
-    })
-    .catch(err => {
-      console.log(err)
-      res.status(500).send('Something went wrong with adding to cart')
-    })
-=======
     if(req.session.user){
       db.add_to_cart([1, id])
       .then(results => {
@@ -93,7 +82,6 @@ module.exports = {
         })
       }
     }
->>>>>>> cart
   },
   updateQuantity: (req, res) => {
     const db = req.app.get('db')
