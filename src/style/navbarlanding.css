@@ -179,7 +179,7 @@ nav.scroll {
 }
 
 .landing-img {
-  width:80vw;
+  width:90vw;
   margin: 20px;
   border-radius: 6px;
 }
@@ -303,10 +303,16 @@ nav.scroll {
 
 @media(min-width: 1100px) and (max-width:1200px) {
   .landing-img {
-    margin-left: 50px;
+    margin-left: 70px;
+    margin-right: 70px;
+    height: 80vh;
+    width: 80vw;
     }
   .opt-landing-img {
-    margin-left: 50px;
+    margin-left: 70px;
+    margin-right: 70px;
+    height: 80vh;
+    width: 80vw;
   }
 }
  
