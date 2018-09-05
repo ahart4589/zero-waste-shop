@@ -89,6 +89,7 @@ VALUES
 --  id = 11;
 
 
+<<<<<<< HEAD
 
 
 
@@ -99,3 +100,7 @@ VALUES
 -- quantity INTEGER,
 -- total INTEGER
 -- );
+=======
+-- ALTER TABLE cart 
+--   ADD COLUMN users_id INTEGER references users(id);
+>>>>>>> cart

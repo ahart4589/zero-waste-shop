@@ -99,7 +99,7 @@ nav.scroll {
 
 .dropdown {
   background-color: #1F2833;
-  height: 66vh;
+  height: 70vh;
   width: 92vw;
   margin-top: 75px;
   position: absolute;
@@ -179,7 +179,7 @@ nav.scroll {
 }
 
 .landing-img {
-  width:90vw;
+  width:80vw;
   margin: 20px;
   border-radius: 6px;
 }

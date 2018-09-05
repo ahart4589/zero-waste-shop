@@ -29,8 +29,17 @@ app.use(session({
   secret: process.env.SESSION_SECRET,
   saveUninitialized: false,
   resave: false,
-  cookie: {maxAge: 1000}
+  cookie: {maxAge: 100000000000}
 }))
+
+app.use((req,res,next)=>{
+  if(!req.session.cart){
+    req.session.cart = []
+    next()
+  }else {
+    next()
+  }
+})
 
 app.get('/api/products', controller.getProducts)
 app.get('/api/cart', controller.getCart)

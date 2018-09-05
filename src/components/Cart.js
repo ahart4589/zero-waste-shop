@@ -23,6 +23,7 @@ class Cart extends Component {
   }
 
   render(){
+    console.log('cart', this.props.cart)
     let total = 0
     let cart = this.props.cart.map(product => {
       total += (product.price * product.quantity)
