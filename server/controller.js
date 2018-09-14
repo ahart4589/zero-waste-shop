@@ -20,10 +20,11 @@ module.exports = {
         let promises = []
         db.checkout().then(() => {
           req.session.cart.forEach(p => {
-            promises.push(db.add_to_cart(p.quantity, p.id))
+            promises.push(db.add_to_cart(p.quantity, p.id, p.users))
           })
           Promise.all(promises).then(() => {
             db.get_cart().then(results => {
+              req.session.cart = []
               res.status(200).send(results)
             })
           })
@@ -38,13 +39,14 @@ module.exports = {
         })
       }
     }else {
+      console.log(req.session)
       res.send(req.session.cart)
     }
   },
   getProduct: (req, res) => {
     const db = req.app.get('db')
     const {id} = req.params
-
+    
     db.get_product(id)
     .then(results => {
       res.status(200).send(results)
@@ -57,8 +59,10 @@ module.exports = {
   addToCart: (req, res) => {
     const db = req.app.get('db')
     const {id} = req.params
+
     if(req.session.user){
-      db.add_to_cart([1, id])
+      console.log(req.session.user)
+      db.add_to_cart([1, id, req.session.user.id])
       .then(results => {
         res.status(200).send(results)
       })
@@ -89,7 +93,7 @@ module.exports = {
     const {quantity} = req.query
 
     if(req.session.user){
-      db.update_quantity([+quantity, id])
+      db.update_quantity([+quantity, id, req.session.user.id])
       .then(results => {
         res.status(200).send(results)
       })
