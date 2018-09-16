@@ -56,7 +56,7 @@ const Checkout = ({name, description, amount, emptyCart, history, user}) => {
     stripeKey={process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY}
   />
   } else {
-    return <div onClick={login}>Login please</div>
+    return <div><button className='continue-button' onClick={login}>Login please</button></div>
   }
 }
 

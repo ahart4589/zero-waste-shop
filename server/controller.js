@@ -150,6 +150,9 @@ module.exports = {
           res.send({orderId: id[0].id})
         })
       })
+    .then(()=> {
+      req.session.cart = []
+    })
   }
 }
 

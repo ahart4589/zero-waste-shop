@@ -29,7 +29,7 @@ app.use(session({
   secret: process.env.SESSION_SECRET,
   saveUninitialized: false,
   resave: false,
-  cookie: {maxAge: 100000000000}
+  cookie: {maxAge: 1000000000}
 }))
 
 app.use((req,res,next)=>{
