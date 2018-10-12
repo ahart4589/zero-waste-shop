@@ -17,7 +17,6 @@ import background from '../images/sea.jpg'
         <div className='order-number'>
           {orderId}
         </div>
-        
       </div>
     </div>
   )

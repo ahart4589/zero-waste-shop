@@ -56,21 +56,6 @@ export default function Why(){
           9
           <br/>Many of the fish that humans consume have at one time or another ingested plastic microfibers.
         </p>
-        {/* <h3>
-          What can you do to help?
-        </h3> */}
-        {/* <h2>
-          1. Never buy single use plastic water bottles, bring your own
-          2. Take reusable shopping bags to the grocery store
-          3. Stop using plastic straws, use stainless steel instead
-          4. Bring a to-go kit with you, with fork, spoon, container, straw, etc, when you get takeout
-          5. Bring your own coffee mug
-          6. Stop using disposable razors
-          7. Use cloth diapers instead of disposables
-          8. Give up gum.  It is made of synthetic rubber, which is plastic
-          9. Do not use products that contain microbeads, ie: facewash
-          10. Strive to convert your home to zero waste
-        </h2> */}
       </div>
       <img className='why-infograph'src={info} alt='infograph'></img>
       <h1 className='all-products' style={{marginTop: '10px', marginBottom: '10px'}}>

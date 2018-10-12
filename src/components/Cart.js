@@ -61,17 +61,6 @@ class Cart extends Component {
             amount={total}
             />
         </div>
-        {/* <footer className='footer footer-cart'>
-          Zero Waste Shop since 2018 
-            <a href='https://www.instagram.com/explore/tags/zerowasteshop/?hl=en' target='_blank'>
-              <i className="fab fa-instagram">
-              </i>
-            </a>
-            <a href='https://www.facebook.com/search/str/zero+waste/keywords_search' target='_blank'>
-            <i className="fab fa-facebook-square">
-              </i>
-            </a>
-        </footer> */}
       </div>
     )
   }

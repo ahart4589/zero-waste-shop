@@ -8,6 +8,7 @@ import { updateQuantity} from '../redux/reducer'
 
 class ProductDetails extends Component {
   componentDidMount() {
+    console.log('its match bitch', this.props.match)
     let {id} = this.props.match.params
     this.props.getProduct(id)
   }
@@ -38,7 +39,6 @@ class ProductDetails extends Component {
             <button className='product-button' onClick={() => this.addProductToCart(product.id)}>Add to Cart</button>
             <br/>
             <p className='description'>{this.props.product.description}</p>
-            {/* <input placeholder='quantity' style={{backgroundColor:'#8B88F0'}} type='text' value={this.props.quantity}/> */}
             </div>
           </div>
           }
@@ -47,17 +47,6 @@ class ProductDetails extends Component {
             Back to all products
           </Link>
         </button>
-        {/* <footer className='footer'>
-          Zero Waste Shop since 2018 
-            <a href='https://www.instagram.com/explore/tags/zerowasteshop/?hl=en' target='_blank'>
-              <i className="fab fa-instagram">
-              </i>
-            </a>
-            <a href='https://www.facebook.com/search/str/zero+waste/keywords_search' target='_blank'>
-            <i className="fab fa-facebook-square">
-              </i>
-            </a>
-        </footer> */}
       </div>
     )
   }
