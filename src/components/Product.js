@@ -15,7 +15,7 @@ class Product extends Component {
     else {
       let quantity = this.props.cart[index].quantity
       quantity++
-      this.props.updateQuantity(id, quantity)
+      this.props.updateQuantity(id, quantity, 'up')
     
     }
   }
@@ -23,6 +23,7 @@ class Product extends Component {
 
   render(){
     let {product} = this.props
+    console.log('woop')
     return (
       <div>
           <div className='products' key={product.id}>

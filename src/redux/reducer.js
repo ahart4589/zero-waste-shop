@@ -96,8 +96,8 @@ export function addToCart(id){
   }
 }
 
-export function updateQuantity(id, quantity){
-  let cart = axios.put(`/api/cart/${id}?quantity=${quantity}`).then(results => {
+export function updateQuantity(id, quantity, update){
+  let cart = axios.put(`/api/cart/${id}?quantity=${quantity}&update=${update}`).then(results => {
     return results.data
   })
   return {

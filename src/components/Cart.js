@@ -14,16 +14,11 @@ class Cart extends Component {
   }
 
   updateQuantity = (id,update,quantity) => {
-    if(update === 'up'){
-      quantity++
-    } else if (update === 'down' && quantity > 1) {
-      quantity--
-    } 
-    this.props.updateQuantity(id, quantity)
+    this.props.updateQuantity(id, quantity, update)
   }
 
   render(){
-    console.log('cart', this.props.cart)
+    // console.log('cart', this.props.cart)
     let total = 0
     let cart = this.props.cart.map(product => {
       total += (product.price * product.quantity)
@@ -35,7 +30,7 @@ class Cart extends Component {
           <h4>{product.name}</h4>
           <p>${product.price} each</p>
           <p>Quantity: {product.quantity}
-              <button className='cart-arrow-button'style={{}} onClick={() => this.updateQuantity(product.id, 'up', product.quantity)}>▲</button>
+              <button className='cart-arrow-button' onClick={() => this.updateQuantity(product.id, 'up', product.quantity)}>▲</button>
               <button  className='cart-arrow-button' onClick={() => this.updateQuantity(product.id, 'down', product.quantity)}>▼</button>
               <button className='cart-remove-button' onClick={() => this.props.deleteFromCart(product.id)}>Remove</button>
           </p>

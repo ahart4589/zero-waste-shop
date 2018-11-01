@@ -14,7 +14,7 @@ module.exports = {
     })
   },
   getCart: (req, res) => {
-    console.log(req.session)
+    // console.log(req.session)
     res.send(req.session.cart)
   },
   getProduct: (req, res) => {
@@ -33,17 +33,19 @@ module.exports = {
   addToCart: (req, res) => {
     const db = req.app.get('db')
     const {id} = req.params
-      const index = req.session.cart.findIndex((p)=>{
-        return p.id === +id
-      })
-      if(index !== -1){
-        req.session.cart[index].quantity++
-        res.send(req.session.cart)
-      }else {
-        db.get_product(id).then(results => {
-          let product = results[0]
-          product.quantity = 1
-          req.session.cart.push(product)
+    const index = req.session.cart.findIndex((p)=>{
+      return p.id === +id
+    })
+    if(index !== -1){
+      req.session.cart[index].quantity++
+      console.log(req.session.cart)
+      res.send(req.session.cart)
+    }else {
+      db.get_product(id).then(results => {
+        let product = results[0]
+        product.quantity = 1
+        req.session.cart.push(product)
+        console.log(req.session.cart)
           res.send(req.session.cart)
         })
       }
@@ -51,13 +53,19 @@ module.exports = {
   updateQuantity: (req, res) => {
     const db = req.app.get('db')
     const {id} = req.params
-    const {quantity} = req.query
+    console.log(11111111,req.query)
+    const {quantity, update} = req.query
       const index = req.session.cart.findIndex(p => p.id === +id)
-        if(index !== -1){
+        if(index !== -1 && update === 'up'){
           req.session.cart[index].quantity++
+          console.log(22222222, quantity)
           res.send(req.session.cart)
         }
-    // }
+        else if(index !== -1 && update === 'down'&& quantity > 1){
+          req.session.cart[index].quantity--
+          console.log(22222222, quantity)
+          res.send(req.session.cart)
+        }
   },
   deleteFromCart: (req, res) => {
     const db = req.app.get('db')

@@ -8,7 +8,6 @@ import { updateQuantity} from '../redux/reducer'
 
 class ProductDetails extends Component {
   componentDidMount() {
-    console.log('its match bitch', this.props.match)
     let {id} = this.props.match.params
     this.props.getProduct(id)
   }
