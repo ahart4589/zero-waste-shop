@@ -12,7 +12,6 @@ class Cart extends Component {
   componentDidMount(){
     this.props.getCart()
   }
-  // here
 
   updateQuantity = (id,update,quantity) => {
     this.props.updateQuantity(id, quantity, update)

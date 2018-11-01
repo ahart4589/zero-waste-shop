@@ -13,7 +13,6 @@ class ProductDetails extends Component {
   }
 
   addProductToCart = (id) => {
-    // console.log(this.props.cart)
     let index = this.props.cart.findIndex(product => product.id ===id)
     if(index === -1) {
       this.props.addToCart(id)
@@ -21,8 +20,7 @@ class ProductDetails extends Component {
     else {
       let quantity = this.props.cart[index].quantity
       quantity++
-      this.props.updateQuantity(id, quantity)
-    
+      this.props.updateQuantity(id, quantity, 'up')  
     }
   }
 
